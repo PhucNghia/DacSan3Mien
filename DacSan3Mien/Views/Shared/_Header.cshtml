@@ -1,0 +1,80 @@
+﻿<header class="noo-header header-3">
+    <div class="navbar-wrapper navbar-fixed-top">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="menu-position">
+                    <div class="navbar-header pull-left">
+                        <div class="noo_menu_canvas">
+                            <div class="btn-search noo-search">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <div data-target=".nav-collapse" class="btn-navbar">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                            <img class="noo-logo-img noo-logo-normal" src="~/Assets/images/logo.png" alt="">
+                        </a>
+                    </div>
+                    <nav class="pull-right noo-menu-option">
+                        <a href="#" class="button-expand-option"><i class="fa fa-ellipsis-v"></i></a>
+                        <ul>
+                            <li class="menu-item noo-menu-item-cart minicart">
+                                <a class="cart-button" href="@Url.Action("Index", "Card")">
+                                    <i class="fa fa-shopping-cart"></i>Giỏ hàng
+                                </a>
+                            </li>
+                            <li class="menu-item fly-right">
+                                <a href="@Url.Action("New", "User")">
+                                    <i class="fa fa-user-plus"></i>Đăng ký
+                                </a>
+                            </li>
+                            <li class="menu-item fly-right">
+                                <a href="@Url.Action("Login", "User")">
+                                    <i class="fa fa-user"></i>Đăng nhập
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav class="pull-right noo-main-menu">
+                        <ul class="nav-collapse navbar-nav">
+                            <li class="menu-item-has-children noo_megamenu mega-col-columns-4">
+                                <a href="@Url.Action("Index", "Product")">Sản phẩm</a>
+                            </li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </nav>
+
+                    @*@if (@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString().Equals("Home"))
+                    {
+                        <div class="col-md-12 span5 offset1" style="margin: -10px 0 10px 0;">
+                            <div class="row">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-3">
+                                    <input type="search" name="s" class="form-control" value="" placeholder="Tìm kiếm...">
+                                </div>
+                                <div class="col-md-1" style="padding-top: 6px;">
+                                    <a id="noo-search" class="search-button noo-search" href="#">
+                                        <i class="fa fa-search"></i> Tìm kiếm
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }*@
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="search-header5">
+            <div class="remove-form"></div>
+            <div class="container">
+                <form class="form-horizontal">
+                    <label class="note-search">Type and Press Enter to Search</label>
+                    <input type="search" name="s" class="form-control" value="" placeholder="Search...">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </div>*@
+</header>

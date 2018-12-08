@@ -1,0 +1,33 @@
+﻿<div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
+    <div class="noo-product-inner">
+        <div class="noo-product-thumbnail">
+            <a href="@Url.Action("Show", "Product")">
+                <img width="600" height="760" src="~/Assets/images/product/@Model.image" alt="" />
+            </a>
+            <div class="noo-rating">
+                <div class="star-rating">
+                    <span style="width:0%"></span>
+                </div>
+            </div>
+        </div>
+        <div class="noo-product-title">
+            <h3><a href="@Url.Action("Show", "Product")">@Model.name</a></h3>
+            <span class="price"><span class="amount">@Model.price vnd</span></span>
+            <div class="noo-product-excerpt">
+                <p>@Model.description/p>
+            </div>
+            <div class="noo-product-action">
+                <div class="noo-action">
+                    <a href="#" class="button product_type_simple add_to_cart_button">
+                        <span>Thêm vào giỏ</span>
+                    </a>
+                    <div class="yith-wcwl-add-to-wishlist">
+                        <div class="yith-wcwl-add-button">
+                            <a href="#" class="add_to_wishlist"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

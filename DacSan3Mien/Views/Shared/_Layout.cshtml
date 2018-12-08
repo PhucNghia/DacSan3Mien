@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <link rel="shortcut icon" href="~/Assets/images/favicon.ico" />
+    <title>Đặc sản 3 miền</title>
+
+    <!--Layout-->
+    @Styles.Render("~/Assets/css/css1")
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Anonymous+Pro:' type='text/css' media='all' />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:700" type="text/css" media="all" />
+    @Styles.Render("~/Assets/css/css2")
+    <link id="style-main-color" rel="stylesheet" href="~/Assets/css/colors/default.css">
+
+    <!--Login And Register-->
+    @Styles.Render("~/Assets/css/login_register")
+
+    @*<!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Assets/Register/css/style.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>*@
+
+</head>
+<body>
+    <div class="noo-spinner">
+        <div class="spinner">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+        </div>
+    </div>
+    <div class="site">
+        @Html.Partial("~/Views/Shared/_Header.cshtml");
+
+        @RenderBody()
+
+        @Html.Partial("~/Views/Shared/_Footer.cshtml");
+    </div>
+    <!--<div class="noo-menu-extend">
+                <div class="menu-extend-wrap">
+                    <span class="menu-closed"></span>
+                    <div class="widget widget_search">
+                        <form class="form-horizontal noo-organici-searchform">
+                            <label class="sr-only"></label>
+                            <input type="search" name="s" class="form-control" value="" placeholder="Enter keyword to search..." />
+                            <input type="submit" class="hidden" value="Search" />
+                        </form>
+                    </div>
+                    <div class="widget widget_nav_menu">
+                        <div class="menu-userful-link-container">
+                            <ul class="menu">
+                                <li><a href="#">Search</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Typo</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Payment</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget widget_flickr">
+                        <div class='flickr-badge-wrapper'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="noo-menu-extend-overlay"></div>
+            <a href="#" class="go-to-top hidden-print"><i class="fa fa-angle-up"></i></a>-->
+    @Scripts.Render("~/Assets/js/layout")
+
+    <!--<script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.video.min.js'></script>
+        <script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.slideanims.min.js'></script>
+        <script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.actions.min.js'></script>
+        <script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.layeranimation.min.js'></script>
+        <script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.kenburn.min.js'></script>
+        <script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.navigation.min.js'></script>
+        <script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.migration.min.js'></script>
+        <script type='text/javascript' src='~/Assets/js/layout/extensions/revolution.extension.parallax.min.js'></script>-->
+    <!--Login And Register-->
+    @Scripts.Render("~/Assets/js/login_register")
+
+</body>
+</html>
