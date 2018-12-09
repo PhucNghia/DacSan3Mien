@@ -20,6 +20,11 @@ namespace DacSan3Mien.Models
         [Required(ErrorMessage = "{0} không được để trống")]
         public string name { get; set; }
 
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "{0} không được để trống")]
+        [EmailAddress(ErrorMessage = "{0} sai định dạng")]
+        public string email { get; set; }
+
         [Display(Name = "Ngày sinh")]
         [Required(ErrorMessage = "{0} không được để trống")]
         public string birthday { get; set; }

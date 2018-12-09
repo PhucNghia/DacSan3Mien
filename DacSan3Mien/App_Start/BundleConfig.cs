@@ -29,6 +29,15 @@ namespace DacSan3Mien
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            // Notify
+            bundles.Add(new StyleBundle("~/Content/notifycss").Include(
+                      "~/Content/toastr.css",
+                      "~/Content/toastr.min.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/notifyjs").Include(
+                       "~/Scripts/toastr.js",
+                       "~/Scripts/toastr.min.js"));
+
             //==================================================================================================
 
             // Layout
@@ -68,8 +77,8 @@ namespace DacSan3Mien
                 "~/Assets/js/jquery.themepunch.tools.min.js",
                 "~/Assets/js/jquery.themepunch.revolution.min.js"));
 
-            // Login And Register
-            bundles.Add(new StyleBundle("~/Assets/css/login_register").Include(
+            // Login
+            bundles.Add(new StyleBundle("~/Assets/css/Login").Include(
                 "~/Assets/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css",
                 "~/Assets/Login/vendor/animate/animate.css",
                 "~/Assets/Login/vendor/css-hamburgers/hamburgers.min.css",
@@ -80,15 +89,21 @@ namespace DacSan3Mien
                 "~/Assets/Login/css/main.css",
                 "~/Assets/Login/css/custom.css"));
 
-            bundles.Add(new ScriptBundle("~/Assets/js/login_register").Include(
+            bundles.Add(new ScriptBundle("~/Assets/js/Login").Include(
                 "~/Assets/Login/vendor/animsition/js/animsition.min.js",
                 "~/Assets/Login/vendor/bootstrap/js/popper.js",
                 "~/Assets/Login/vendor/select2/select2.min.js",
                 "~/Assets/Login/vendor/daterangepicker/moment.min.js",
                 "~/Assets/Login/vendor/daterangepicker/daterangepicker.js",
-                "~/Assets/Login/vendor/countdowntime/countdowntime.js",
-                "~/assets/Login/js/main.js"
+                "~/Assets/Login/vendor/countdowntime/countdowntime.js"
+                //"~/assets/Login/js/main.js"
                 ));
+
+            // Register
+            bundles.Add(new StyleBundle("~/Assets/css/Register").Include(
+                "~/Assets/Register/css/style.css"));
+
+            //
         }
     }
 }

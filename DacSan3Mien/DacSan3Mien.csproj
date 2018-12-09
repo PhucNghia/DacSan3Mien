@@ -155,6 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="Content\js\notify.js" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -560,10 +561,13 @@
     <Content Include="Assets\Login\vendor\select2\select2.min.css" />
     <Content Include="Assets\Login\vendor\select2\select2.min.js" />
     <Content Include="Assets\Register\css\style.css" />
+    <Content Include="Assets\Register\js\custom.js" />
     <Content Include="Content\default\bootstrap-theme.css" />
     <Content Include="Content\default\bootstrap-theme.min.css" />
     <Content Include="Content\default\bootstrap.css" />
     <Content Include="Content\default\bootstrap.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -679,6 +683,8 @@
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -690,6 +696,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -717,7 +725,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
     <Folder Include="Content\images\" />
-    <Folder Include="Content\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

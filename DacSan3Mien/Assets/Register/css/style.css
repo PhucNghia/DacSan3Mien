@@ -15,11 +15,6 @@
     margin: 50px 15px;
 }
 
-    .main h3 {
-        font-family: "Ubuntu-Bold";
-        font-size: 28px;
-    }
-
 h1.title {
     font-size: 50px;
     font-family: 'Ubuntu-Bold';
@@ -41,7 +36,7 @@ label {
 
 input,
 input::-webkit-input-placeholder {
-    font-size: 11px;
+    font-size: 15px;
     padding-top: 3px;
 }
 
@@ -92,7 +87,7 @@ input::-webkit-input-placeholder {
 .main-center {
     margin-top: 30px;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 500px;
     padding: 10px 40px;
     background: #CEE3F6;
     color: #FFF;
@@ -105,14 +100,26 @@ input::-webkit-input-placeholder {
 
 span.input-group-addon i {
     color: #009edf;
-    font-size: 17px;
+    font-size: 25px;
 }
 
 .login-button {
     margin-top: 5px;
 }
 
-.login-register {
-    font-size: 11px;
-    text-align: center;
+/*Custom*/
+.limiter-register {
+    margin-top: 50px;
+}
+.register-main h3 {
+    font-family: "Ubuntu-Bold";
+    font-size: 28px;
+}
+.register-main label {
+    color: #151515;
+    font-size: 18px;
+}
+
+.register-main #btn-register {
+    margin-top: 35px;
 }

@@ -1,221 +1,114 @@
 ﻿@model DacSan3Mien.Models.User
-
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New</h2>
+<div class="limiter limiter-register">
+    <div class="container-login100" style="background-image: url('https://cdn.dealtoday.vn/img/s630x420/439cebed8dfd4cee93be5895fc3e3fba.JPG?sign=H1NxW1olFYbnS6Y8g9eovw'); ">
+        <div class="container">
+            <div class="row main register-main">
+                <div class="main-login main-center">
+                    <h3 class="text-center">Đăng ký</h3>
+                    <h3>@TempData["error"]</h3>
+                    @using (Html.BeginForm("New", "User", new { ReturnUrl = ViewBag.ReturnUrl },
+                        FormMethod.Post, new { @class = "register-form" }))
+                    {
+                        @Html.AntiForgeryToken()
 
-@*@using (Html.BeginForm("Create", "User"))*@
-@*@using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-horizontal">
-            <h4>User</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">Họ tên</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập mật khẩu...", @type = "text", @name = "name" } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="cols-sm-2 control-label" data-validate="Enter username">Nhập Email</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập email...", @type = "text", @name = "email" } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birth" class="cols-sm-2 control-label">Ngày sinh</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                                    @Html.EditorFor(model => model.birthday, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập ngày sinh...", @type = "text", @name = "birth" } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.birthday, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="cols-sm-2 control-label">Giới tính</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-transgender" aria-hidden="true"></i></span>
+                                    @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập giới tính...", @type = "text", @name = "gender" } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="cols-sm-2 control-label">Điện thoại</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập số điện thoại...", @type = "text", @name = "phone" } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="cols-sm-2 control-label">Địa chỉ</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                                    @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control",
+                                       @placeholder = "Nhập địa chỉ...", @type = "text", @name = "address" } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Mật khẩu</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control",
+                                       @placeholder = "Nhập mật khẩu...", @type = "text", @name = "password" } })
+                                </div>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm" class="cols-sm-2 control-label">Nhập lại mật khẩu</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Nhập lại mật khẩu ..." />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success login-button btn-lg btn-block" id="btn-register">Đăng ký</button>
+                        </div>
+                    }
                 </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.birthday, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.birthday, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.birthday, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.address, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.role, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.role, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }*@
-
-@*<div class="limiter">
-        <div class="container-login100" style="background-image: url('https://cdn.dealtoday.vn/img/s630x420/439cebed8dfd4cee93be5895fc3e3fba.JPG?sign=H1NxW1olFYbnS6Y8g9eovw'); ">
-            <div class="wrap-login100 p-t-30 p-b-50 register">
-                <span class="login100-form-title p-b-41">
-                    Đăng ký
-                </span>
-                @using (Html.BeginForm("New", "User", new { ReturnUrl = ViewBag.ReturnUrl },
-                    FormMethod.Post, new { @class = "login100-form validate-form p-b-33 p-t-5" }))
-                {
-                <div class="wrap-input100 validate-input" data-validate="Họ tên không được để trống">
-                    <span class="input100 focus-input100 label_name">Họ tên</span>
-                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "input100", @placeholder = "Nhập họ tên..." } })
-                    <span class="focus-input100" data-placeholder="&#xe82a;"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <span class="input100 focus-input100 label_name">Ngày sinh</span>
-                    @Html.EditorFor(model => model.birthday, new { htmlAttributes = new { @class = "input100", @placeholder = "Nhập ngày sinh..." } })
-                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <span class="input100 focus-input100 label_name">Giới tính</span>
-                    @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "input100", @placeholder = "Giới tính..." } })
-                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <span class="input100 focus-input100 label_name">Số điện thoại</span>
-                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "input100", @placeholder = "Số điện thoại..." } })
-                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <span class="input100 focus-input100 label_name">Địa chỉ</span>
-                    @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "input100", @placeholder = "Địa chỉ..." } })
-                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <span class="input100 focus-input100 label_name">Mật khẩu</span>
-                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input100", @placeholder = "Nhập mật khẩu...", @type = "password" } })
-                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @type = "hidden" } })
-                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
-                </div>
-
-                    <div class="container-login100-form-btn m-t-32">
-                        <input type="submit" value="Đăng nhập" class="btn login100-form-btn" />
-                        <button class="login100-form-btn">
-                            Đăng nhập
-                        </button>
-                    </div>
-
-                }
             </div>
         </div>
     </div>
-    <div id="dropDownSelect1"></div>*@
-
-
-@*==============================================================*@
-
-<div class="limiter">
-    <div class="container-login100" style="background-image: url('https://cdn.dealtoday.vn/img/s630x420/439cebed8dfd4cee93be5895fc3e3fba.JPG?sign=H1NxW1olFYbnS6Y8g9eovw'); ">
-        @*<div class="wrap-login100 p-t-30 p-b-50 register">*@
-
-            <div class="container">
-                <div class="row main">
-                    <div class="main-login main-center">
-                        <h3 class="text-center">Đăng ký</h3>
-                        <form class="" method="post" action="#">
-
-                            <div class="form-group">
-                                <label for="name" class="cols-sm-2 control-label">Your Name</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="cols-sm-2 control-label">Your Email</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="username" class="cols-sm-2 control-label">Username</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="cols-sm-2 control-label">Password</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                                <div class="cols-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <a href="https://deepak646.blogspot.com/" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-            <div>
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        </div>
-    @*</div>*@
 </div>

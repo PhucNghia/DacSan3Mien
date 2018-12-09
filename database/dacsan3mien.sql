@@ -18,6 +18,7 @@ create table [dbo].[Product](
 create table [dbo].[User](
 	id int identity primary key,
 	name nvarchar(100) not null,
+	email varchar(20),
 	birthday varchar(20),
 	gender nvarchar(10),
 	phone varchar(20),
@@ -33,3 +34,5 @@ insert into [dbo].[Product] values(N'Sản phẩm 4', 'product_4.jpg', 40000, 'i
 insert into [dbo].[Product] values(N'Sản phẩm 5', 'product_5.jpg', 50000, 'in stock', N'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
 
 select * from [dbo].[Product]
+select * from [dbo].[User]
+delete from [dbo].[User] where id = 1

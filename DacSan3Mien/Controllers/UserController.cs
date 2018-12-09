@@ -32,10 +32,13 @@ namespace DacSan3Mien.Controllers
         {
             if (ModelState.IsValid)
             {
+                user.id = 1;
                 db.Users.Add(user);
                 db.SaveChanges();
+                TempData["success"] = "Thêm thành công!";
                 return RedirectToAction("Index", "Home");
             }
+            TempData["error"] = "Không thêm được người dùng!";
             return View();
         }
     }
