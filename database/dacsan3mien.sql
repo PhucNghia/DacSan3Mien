@@ -18,7 +18,7 @@ create table [dbo].[Product](
 create table [dbo].[User](
 	id int identity primary key,
 	name nvarchar(100) not null,
-	email varchar(20),
+	email varchar(50),
 	birthday varchar(20),
 	gender nvarchar(10),
 	phone varchar(20),
@@ -32,6 +32,8 @@ insert into [dbo].[Product] values(N'Sản phẩm 2', 'product_2.jpg', 20000, 'i
 insert into [dbo].[Product] values(N'Sản phẩm 3', 'product_3.jpg', 30000, 'in stock', N'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
 insert into [dbo].[Product] values(N'Sản phẩm 4', 'product_4.jpg', 40000, 'in stock', N'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
 insert into [dbo].[Product] values(N'Sản phẩm 5', 'product_5.jpg', 50000, 'in stock', N'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua');
+
+insert into [dbo].[User] values(N'Nghĩa', 'ngocnghia@gmail.com', '21/08/1997', 'Nam', '0918201', N'Tuyên Quang', 'pass', 'admin')
 
 select * from [dbo].[Product]
 select * from [dbo].[User]

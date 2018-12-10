@@ -123,3 +123,16 @@ span.input-group-addon i {
 .register-main #btn-register {
     margin-top: 35px;
 }
+
+.select-gender {
+    color: #767676;
+    color: black;
+}
+
+.icon-gender {
+    padding-top: 4px;
+}
+
+.register-form input {
+    color: black;
+}

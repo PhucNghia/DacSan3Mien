@@ -10,6 +10,8 @@ namespace DacSan3Mien.Controllers
     public class UserController : Controller
     {
         DACSAN3MIENEntities db = new DACSAN3MIENEntities();
+        User user = new User();
+
         // GET: User
         public ActionResult Index()
         {
@@ -24,7 +26,8 @@ namespace DacSan3Mien.Controllers
         [HttpGet]
         public ActionResult New()
         {
-            return View();
+            user.listGender = getListGender();
+            return View(user);
         }
 
         [HttpPost]
@@ -32,14 +35,26 @@ namespace DacSan3Mien.Controllers
         {
             if (ModelState.IsValid)
             {
-                user.id = 1;
+                user.role = "user";
                 db.Users.Add(user);
                 db.SaveChanges();
                 TempData["success"] = "Thêm thành công!";
                 return RedirectToAction("Index", "Home");
             }
             TempData["error"] = "Không thêm được người dùng!";
-            return View();
+            user.listGender = getListGender();
+            
+            return View(user);
+        }
+
+        private List<SelectListItem> getListGender()
+        {
+            SelectListItem nam = new SelectListItem { Text = "Nam", Value = "Nam" };
+            SelectListItem nu = new SelectListItem { Text = "Nữ", Value = "Nữ" };
+            List<SelectListItem> list = new List<SelectListItem>();
+            list.Add(nam);
+            list.Add(nu);
+            return list;
         }
     }
 }

@@ -31,11 +31,9 @@ namespace DacSan3Mien
 
             // Notify
             bundles.Add(new StyleBundle("~/Content/notifycss").Include(
-                      "~/Content/toastr.css",
                       "~/Content/toastr.min.css"));
 
             bundles.Add(new ScriptBundle("~/Content/notifyjs").Include(
-                       "~/Scripts/toastr.js",
                        "~/Scripts/toastr.min.js"));
 
             //==================================================================================================
@@ -61,7 +59,6 @@ namespace DacSan3Mien
                 "~/Assets/js/modernizr-2.7.1.min.js",
                 "~/Assets/js/off-cavnass.js",
                 "~/Assets/js/jquery.cookie.js",
-                "~/Assets/js/style.selector.js",
                 "~/Assets/js/script.js",
                 "~/Assets/js/custom.js",
                 "~/Assets/js/imagesloaded.pkgd.min.js",
@@ -100,8 +97,8 @@ namespace DacSan3Mien
                 ));
 
             // Register
-            bundles.Add(new StyleBundle("~/Assets/css/Register").Include(
-                "~/Assets/Register/css/style.css"));
+            bundles.Add(new StyleBundle("~/Assets/css/register").Include(
+                "~/Assets/Register/css/register.css"));
 
             //
         }

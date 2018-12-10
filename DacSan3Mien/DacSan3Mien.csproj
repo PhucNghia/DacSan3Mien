@@ -560,13 +560,12 @@
     <Content Include="Assets\Login\vendor\select2\select2.js" />
     <Content Include="Assets\Login\vendor\select2\select2.min.css" />
     <Content Include="Assets\Login\vendor\select2\select2.min.js" />
-    <Content Include="Assets\Register\css\style.css" />
+    <Content Include="Assets\Register\css\register.css" />
     <Content Include="Assets\Register\js\custom.js" />
     <Content Include="Content\default\bootstrap-theme.css" />
     <Content Include="Content\default\bootstrap-theme.min.css" />
     <Content Include="Content\default\bootstrap.css" />
     <Content Include="Content\default\bootstrap.min.css" />
-    <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -586,13 +585,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\DacSan3MienModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DacSan3MienModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DacSan3MienModel.edmx.diagram">
-      <DependentUpon>DacSan3MienModel.edmx</DependentUpon>
     </Content>
     <Content Include="Assets\fonts\fontawesome-webfont3295.eot" />
     <Content Include="Assets\fonts\fontawesome-webfont3295.ttf" />
@@ -685,6 +677,13 @@
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <EntityDeploy Include="Models\DacSan3MienModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DacSan3MienModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DacSan3MienModel.edmx.diagram">
+      <DependentUpon>DacSan3MienModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -696,7 +695,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

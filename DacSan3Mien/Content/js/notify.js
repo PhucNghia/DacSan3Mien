@@ -13,12 +13,11 @@
             "closeButton": true,
             "positionClass": "toast-top-right",
             "onclick": null,
-            "fadeIn": 300,
-            "fadeOut": 500,
-            "timeOut": 4000
+            "showDuration": 2500,
+            "timeOut": 5000
         };
         toastr[msgType](message);
         $('.toast-success, .toast-error').css('width', '350');
-        $('.toast-info, .toast-error').css('margin-top', '72px');
+        $('.toast-success, .toast-error').css('margin-top', '72px');
     };
 });
