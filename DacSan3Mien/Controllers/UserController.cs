@@ -18,9 +18,34 @@ namespace DacSan3Mien.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection formCollection)
+        {
+            string email = formCollection.Get("email");
+            string pass = formCollection.Get("password");
+            User currentUser = db.Users.SingleOrDefault(n => n.email == email && n.password == pass);
+            if (currentUser != null)
+            {
+                Session["userID"] = currentUser.id;
+                Session["userName"] = currentUser.name;
+
+                TempData["success"] = "Đăng nhập thành công!";
+                return RedirectToAction("Index", "Home");
+            }
+            TempData["error"] = "Email hoặc mật khẩu không đúng!";
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session["currentUser"] = null;
+            return Redirect("/");
         }
 
         [HttpGet]

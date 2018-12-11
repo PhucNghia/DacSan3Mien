@@ -92,8 +92,8 @@ namespace DacSan3Mien
                 "~/Assets/Login/vendor/select2/select2.min.js",
                 "~/Assets/Login/vendor/daterangepicker/moment.min.js",
                 "~/Assets/Login/vendor/daterangepicker/daterangepicker.js",
-                "~/Assets/Login/vendor/countdowntime/countdowntime.js"
-                //"~/assets/Login/js/main.js"
+                "~/Assets/Login/vendor/countdowntime/countdowntime.js",
+                "~/assets/Login/js/mainlogin.js"
                 ));
 
             // Register

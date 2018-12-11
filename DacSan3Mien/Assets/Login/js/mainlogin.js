@@ -8,7 +8,6 @@
     
     $('.input100').each(function () {
         $(this).on('blur', function () {
-            debugger
             if($(this).val().trim() != "") {
                 $(this).addClass('has-val');
             }
@@ -22,7 +21,7 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-   
+
     $('.validate-form').on('submit', function () {
         var check = true;
         for(var i=0; i<input.length; i++) {

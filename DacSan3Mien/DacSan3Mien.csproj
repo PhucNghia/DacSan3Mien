@@ -529,7 +529,7 @@
     <Content Include="Assets\Login\fonts\ubuntu\UFL.txt" />
     <Content Include="Assets\Login\images\bg-01.jpg" />
     <Content Include="Assets\Login\images\icons\favicon.ico" />
-    <Content Include="Assets\Login\js\main.js" />
+    <Content Include="Assets\Login\js\mainlogin.js" />
     <Content Include="Assets\Login\vendor\animate\animate.css" />
     <Content Include="Assets\Login\vendor\animsition\css\animsition.css" />
     <Content Include="Assets\Login\vendor\animsition\css\animsition.min.css" />
