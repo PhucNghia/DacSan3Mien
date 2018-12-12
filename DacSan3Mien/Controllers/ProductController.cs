@@ -9,7 +9,7 @@ namespace DacSan3Mien.Controllers
 {
     public class ProductController : Controller
     {
-        DACSAN3MIENEntities db = new DACSAN3MIENEntities();
+        DataContext db = new DataContext();
 
         // GET: Product
         public ActionResult Index()
