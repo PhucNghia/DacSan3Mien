@@ -99,8 +99,6 @@ namespace DacSan3Mien
             // Register
             bundles.Add(new StyleBundle("~/Assets/css/register").Include(
                 "~/Assets/Register/css/register.css"));
-
-            //
         }
     }
 }

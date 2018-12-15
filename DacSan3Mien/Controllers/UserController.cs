@@ -9,7 +9,7 @@ namespace DacSan3Mien.Controllers
 {
     public class UserController : Controller
     {
-        DACSAN3MIENEntities db = new DACSAN3MIENEntities();
+        DataContext db = new DataContext();
         User user = new User();
 
         // GET: User
@@ -44,7 +44,8 @@ namespace DacSan3Mien.Controllers
 
         public ActionResult Logout()
         {
-            Session["currentUser"] = null;
+            Session["userID"] = null;
+            Session["userName"] = null;
             return Redirect("/");
         }
 

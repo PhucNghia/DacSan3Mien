@@ -1,4 +1,6 @@
-﻿<header class="noo-header header-3">
+﻿@using DacSan3Mien.Helper.Product
+
+<header class="noo-header header-3">
     <div class="navbar-wrapper navbar-fixed-top">
         <div class="navbar navbar-default">
             <div class="container">
@@ -21,12 +23,22 @@
                     <nav class="pull-right noo-menu-option">
                         <a href="#" class="button-expand-option"><i class="fa fa-ellipsis-v"></i></a>
                         <ul>
-                            <li class="menu-item noo-menu-item-cart minicart">
-                                <a class="cart-button" href="@Url.Action("Index", "Card")">
-                                    <i class="fa fa-shopping-cart"></i>Giỏ hàng
-                                </a>
-                            </li>
-
+                            @if (Session["userID"] != null && @Html.checkAdmin((int)Session["userID"]) == true)
+                            {
+                                <li class="menu-item noo-menu-item-cart minicart">
+                                    <a class="cart-button" href="@Url.Action("Index", "Home")">
+                                        <i class="fa fa-home"></i>Quản lý
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="menu-item noo-menu-item-cart minicart">
+                                    <a class="cart-button" href="@Url.Action("Index", "Card")">
+                                        <i class="fa fa-shopping-cart"></i>Giỏ hàng
+                                    </a>
+                                </li>
+                            }
                             @if (Session["userID"] == null)
                             {
                                 <li class="menu-item fly-right">
