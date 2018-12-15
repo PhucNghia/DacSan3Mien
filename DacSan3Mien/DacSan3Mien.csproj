@@ -155,34 +155,51 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="Assets\images\favicon.jpg" />
+    <Content Include="Content\images\banh_da_ke.jpg" />
+    <Content Include="Content\images\banh_pia.jpg" />
+    <Content Include="Content\images\banh_tet.jpg" />
+    <Content Include="Content\images\banh_trang.jpg" />
+    <Content Include="Content\images\che_thai_nguyen.jpg" />
+    <Content Include="Content\images\cu_do.jpg" />
+    <Content Include="Content\images\dau_xanh.jpg" />
+    <Content Include="Content\images\ga_xe_cay.jpg" />
+    <Content Include="Content\images\ha_thu_o.jpg" />
+    <Content Include="Content\images\lap_suon.jpg" />
+    <Content Include="Content\images\mang_nua.jpg" />
+    <Content Include="Content\images\mit_say.jpg" />
+    <Content Include="Content\images\muoi_tom.jpg" />
+    <Content Include="Content\images\nem_buoi.jpg" />
+    <Content Include="Content\images\nep_nuong.jpg" />
+    <Content Include="Content\images\nho.jpg" />
+    <Content Include="Content\images\ruou_dua.jpg" />
+    <Content Include="Content\images\sa_sung.jpg" />
+    <Content Include="Content\images\sen_kho.jpg" />
+    <Content Include="Content\images\su_su.jpg" />
+    <Content Include="Content\images\theo_leo.jpg" />
+    <Content Include="Content\images\thit_trau_say.jpg" />
+    <Content Include="Content\images\thuoc_tam_giao_do.jpg" />
+    <Content Include="Content\images\tom_chua.jpg" />
+    <Content Include="Content\js\notify.js" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DacSan3MienModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DacSan3MienModel.Context.tt</DependentUpon>
+    <Compile Include="Helper\Product\ProductHelper.cs" />
+    <Compile Include="Migrations\201812131125118_InitialCreate.cs" />
+    <Compile Include="Migrations\201812131125118_InitialCreate.Designer.cs">
+      <DependentUpon>201812131125118_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\DacSan3MienModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DacSan3MienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DacSan3MienModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DacSan3MienModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>DacSan3MienModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>DacSan3MienModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModels\ProductRegions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -528,7 +545,7 @@
     <Content Include="Assets\Login\fonts\ubuntu\UFL.txt" />
     <Content Include="Assets\Login\images\bg-01.jpg" />
     <Content Include="Assets\Login\images\icons\favicon.ico" />
-    <Content Include="Assets\Login\js\main.js" />
+    <Content Include="Assets\Login\js\mainlogin.js" />
     <Content Include="Assets\Login\vendor\animate\animate.css" />
     <Content Include="Assets\Login\vendor\animsition\css\animsition.css" />
     <Content Include="Assets\Login\vendor\animsition\css\animsition.min.css" />
@@ -559,36 +576,21 @@
     <Content Include="Assets\Login\vendor\select2\select2.js" />
     <Content Include="Assets\Login\vendor\select2\select2.min.css" />
     <Content Include="Assets\Login\vendor\select2\select2.min.js" />
-    <Content Include="Assets\Register\css\style.css" />
+    <Content Include="Assets\Register\css\register.css" />
+    <Content Include="Assets\Register\js\custom.js" />
     <Content Include="Content\default\bootstrap-theme.css" />
     <Content Include="Content\default\bootstrap-theme.min.css" />
     <Content Include="Content\default\bootstrap.css" />
     <Content Include="Content\default\bootstrap.min.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\default\Site.css" />
-    <Content Include="Models\DacSan3MienModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DacSan3MienModel.edmx</DependentUpon>
-      <LastGenOutput>DacSan3MienModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DacSan3MienModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DacSan3MienModel.edmx</DependentUpon>
-      <LastGenOutput>DacSan3MienModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\DacSan3MienModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DacSan3MienModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DacSan3MienModel.edmx.diagram">
-      <DependentUpon>DacSan3MienModel.edmx</DependentUpon>
     </Content>
     <Content Include="Assets\fonts\fontawesome-webfont3295.eot" />
     <Content Include="Assets\fonts\fontawesome-webfont3295.ttf" />
@@ -679,6 +681,8 @@
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -690,7 +694,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -701,8 +708,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Show.cshtml" />
@@ -712,12 +717,15 @@
     <Content Include="Views\User\New.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Regions\Create.cshtml" />
+    <Content Include="Views\Regions\Delete.cshtml" />
+    <Content Include="Views\Regions\Details.cshtml" />
+    <Content Include="Views\Regions\Edit.cshtml" />
+    <Content Include="Views\Regions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
-    <Folder Include="Content\images\" />
-    <Folder Include="Content\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -734,6 +742,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812131125118_InitialCreate.resx">
+      <DependentUpon>201812131125118_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

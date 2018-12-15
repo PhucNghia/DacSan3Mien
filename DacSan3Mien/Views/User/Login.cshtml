@@ -6,18 +6,19 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('https://cdn.dealtoday.vn/img/s630x420/439cebed8dfd4cee93be5895fc3e3fba.JPG?sign=H1NxW1olFYbnS6Y8g9eovw'); ">
         <div class="wrap-login100 p-t-30 p-b-50">
-            <span class="login100-form-title p-b-41" >
+            <span class="login100-form-title p-b-41">
                 Đăng nhập
             </span>
-            <form class="login100-form validate-form p-b-33 p-t-5">
-
+            @using (Html.BeginForm("Login", "User", new { ReturnUrl = ViewBag.ReturnUrl },
+                        FormMethod.Post, new { @class = "login100-form validate-form p-b-33 p-t-5" }))
+            {
                 <div class="wrap-input100 validate-input" data-validate="Enter username">
-                    <input class="input100" type="text" name="username" placeholder="User name">
+                    <input class="input100" type="text" name="email" placeholder="email...">
                     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
+                    <input class="input100" type="password" name="password" placeholder="mật khẩu...">
                     <span class="focus-input100" data-placeholder="&#xe80f;"></span>
                 </div>
 
@@ -26,8 +27,7 @@
                         Đăng nhập
                     </button>
                 </div>
-
-            </form>
+            }
         </div>
     </div>
 </div>
