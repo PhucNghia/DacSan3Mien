@@ -1,279 +1,168 @@
-﻿
+﻿@using DacSan3Mien.Models.ViewModels
+@model ProductRegions
 @{
     ViewBag.Title = "Show";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!doctype html>
-<html lang="en-US">
+@*<!doctype html>
+    <html lang="en-US">*@
 
 
-<body>
+@*<body>
     <div class="noo-spinner">
         <div class="spinner">
             <div class="cube1"></div>
             <div class="cube2"></div>
         </div>
-    </div>
-    <div class="site">
-        <section class="noo-page-heading eff heading-6">
-            <div class="container">
-                <div class="noo-heading-content">
-                    <h1 class="page-title eff">Chi tiết sản phẩm</h1>
-                    <div class="noo-page-breadcrumb eff">
-                        <a href="index.html" class="home">Đặc sản 3 miền</a>/<span>Chi tiết</span>
-                    </div>
+    </div>*@
+<div class="site">
+    <section class="noo-page-heading eff heading-6">
+        <div class="container">
+            <div class="noo-heading-content">
+                <h1 class="page-title eff">Chi tiết sản phẩm</h1>
+                <div class="noo-page-breadcrumb eff">
+                    <a href="index.html" class="home">Đặc sản 3 miền</a>/<span>Chi tiết</span>
                 </div>
             </div>
-        </section>
-        <div class="main">
-            <div class="commerce single-product noo-shop-main">
-                <div class="container">
-                    <div class="row">
-                        <div class="noo-main col-md-9">
-                            <div class="product">
-                                <div class="single-inner">
-                                    <div class="images">
-                                        <div class="product-simple-image">
-                                            <a href="images/product/product_detail.jpg" data-rel="prettyPhoto">
-                                                <img width="300" height="381" src="~/Assets/images/product/product_detail.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="summary entry-summary">
-                                        <h1 class="product_title entry-title">Cucumbers</h1>
-                                        <p class="price"><span class="amount">&#36;1.95</span></p>
-                                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                                        <div class="product_meta">
-                                            <span class="posted_in">Vị trí: <a href="#">Miền Bắc</a></span>
-                                        </div>
-                                        <form class="cart">
-                                            <div class="quantity">
-                                                <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
-                                            </div>
-                                            <button type="submit" class="single_add_to_cart_button button">Thêm vào giỏ</button>
-                                        </form>
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <div class="yith-wcwl-add-button">
-                                                <a href="#" class="add_to_wishlist"></a>
-                                            </div>
-                                        </div>
-                                        <div class="clear"></div>
-                                        <div class="noo-social-share">
-                                            <span>Chia sẻ:</span>
-                                            <a href="#share" class="noo-share" title="Share on Facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                            <a href="#share" class="noo-share" title="Share on Twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                            <a href="#share" class="noo-share" title="Share on Google+">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                            <a href="#share" class="noo-share" title="Share on Pinterest">
-                                                <i class="fa fa-pinterest"></i>
-                                            </a>
-                                        </div>
+        </div>
+    </section>
+    <div class="main">
+        <div class="commerce single-product noo-shop-main">
+            <div class="container">
+                <div class="row">
+                    <div class="noo-main col-md-9">
+                        <div class="product">
+                            <div class="single-inner">
+                                <div class="images">
+                                    <div class="product-simple-image">
+                                        <img width="300" height="381" src="~/Content/images/@Model.image" alt="" />
                                     </div>
                                 </div>
-                                <div class="commerce-tabs">
-                                    <ul class="nav nav-tabs tabs">
-                                        <li class="active">
-                                            <a data-toggle="tab" href="#tab-1">Chi tiết</a>
-                                        </li>
-                                        @*<li>
+                                <div class="summary entry-summary">
+                                    <h1 class="product_title entry-title">@Model.productName</h1>
+                                    <p class="price"><span class="amount">@Model.price VND</span></p>
+                                    <p class="description">@Model.description</p>
+                                    <div class="product_meta">
+                                        <span class="posted_in">Vị trí: @Model.regionName</span>
+                                    </div>
+                                    <form class="cart">
+                                        <div class="quantity">
+                                            <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
+                                        </div>
+                                        <button type="submit" class="single_add_to_cart_button button">Thêm vào giỏ</button>
+                                    </form>
+                                    <div class="yith-wcwl-add-to-wishlist">
+                                        <div class="yith-wcwl-add-button">
+                                            <a href="#" class="add_to_wishlist"></a>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="noo-social-share">
+                                        <span>Chia sẻ:</span>
+                                        <a href="#share" class="noo-share" title="Share on Facebook">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                        <a href="#share" class="noo-share" title="Share on Twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a href="#share" class="noo-share" title="Share on Google+">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                        <a href="#share" class="noo-share" title="Share on Pinterest">
+                                            <i class="fa fa-pinterest"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="commerce-tabs">
+                                <ul class="nav nav-tabs tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#tab-1">Chi tiết</a>
+                                    </li>
+                                    @*<li>
                                             <a data-toggle="tab" href="#tab-2">Reviews</a>
                                         </li>*@
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade in active" id="tab-1">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas tristique gravida, odio et sagi ttis justo. Susp endisse ultricies nisi vel quam suscipit, et rutrum odio porttitor. Donec dictum non nulla ut lobortis. Maecenas tristique gravida, odio et sagi ttis justo. Aliquam vitae mi a eros tincidunt ultricies. Donec porta gravida arcu. Morbi facilisis lorem felis, eu inerdum quam scelerisque eu. Phasellus vel turpis dictum, pulvinar nulla</p>
-                                        </div>
-                                        @*<div id="tab-2" class="tab-pane fade">
-                                            <div id="comments" class="comments-area">
-                                                <h2 class="comments-title">3 Comments</h2>
-                                                <ol class="comments-list">
-                                                    <li class="comment">
-                                                        <div class="comment-wrap">
-                                                            <div class="comment-img">
-                                                                <img alt='' src='http://placehold.it/100x100' height='80' width='80' />
-                                                            </div>
-                                                            <article class="comment-block">
-                                                                <header class="comment-header">
-                                                                    <cite class="comment-author">
-                                                                        admin
-                                                                    </cite>
-                                                                    <div class="comment-meta">
-                                                                        <span class="time">
-                                                                            4 months ago
-                                                                        </span>
-                                                                    </div>
-                                                                </header>
-                                                                <div class="comment-content">
-                                                                    <p>fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus</p>
-                                                                </div>
-                                                                <span class="comment-reply">
-                                                                    <a class='comment-reply-link' href='#'><i class="fa fa-reply"></i> Reply</a>
-                                                                </span>
-                                                            </article>
-                                                        </div>
-                                                        <ol class="children">
-                                                            <li class="comment">
-                                                                <div class="comment-wrap">
-                                                                    <div class="comment-img">
-                                                                        <img alt='' src='http://placehold.it/100x100' height='80' width='80' />
-                                                                    </div>
-                                                                    <article class="comment-block">
-                                                                        <header class="comment-header">
-                                                                            <cite class="comment-author">
-                                                                                admin
-                                                                            </cite>
-                                                                            <div class="comment-meta">
-                                                                                <span class="time">
-                                                                                    4 months ago
-                                                                                </span>
-                                                                            </div>
-                                                                        </header>
-                                                                        <div class="comment-content">
-                                                                            <p>fSames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus</p>
-                                                                        </div>
-                                                                        <span class="comment-reply">
-                                                                            <a class='comment-reply-link' href='#'><i class="fa fa-reply"></i> Reply</a>
-                                                                        </span>
-                                                                    </article>
-                                                                </div>
-                                                            </li><!-- #comment-## -->
-                                                        </ol><!-- .children -->
-                                                    </li><!-- #comment-## -->
-                                                    <li class="comment">
-                                                        <div class="comment-wrap">
-                                                            <div class="comment-img">
-                                                                <img alt='' src='http://placehold.it/100x100' height='80' width='80' />
-                                                            </div>
-                                                            <article class="comment-block">
-                                                                <header class="comment-header">
-                                                                    <cite class="comment-author">
-                                                                        admin
-                                                                    </cite>
-                                                                    <div class="comment-meta">
-                                                                        <span class="time">
-                                                                            4 months ago
-                                                                        </span>
-                                                                    </div>
-                                                                </header>
-                                                                <div class="comment-content">
-                                                                    <p>fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus</p>
-                                                                </div>
-                                                                <span class="comment-reply">
-                                                                    <a class='comment-reply-link' href='#'><i class="fa fa-reply"></i> Reply</a>
-                                                                </span>
-                                                            </article>
-                                                        </div>
-                                                    </li><!-- #comment-## -->
-                                                </ol> <!-- /.comments-list -->
-                                                <div id="respond-wrap">
-                                                    <div id="respond" class="comment-respond">
-                                                        <h3 id="reply-title" class="comment-reply-title">
-                                                            <span>Leave your thought</span>
-                                                        </h3>
-                                                        <form class="comment-form">
-                                                            <div class="row">
-                                                                <div class="comment-form-author col-sm-6">
-                                                                    <input id="author" name="author" type="text" placeholder="Enter Your Name*" class="form-control" value="" size="30" />
-                                                                </div>
-                                                                <div class="comment-form-email col-sm-6">
-                                                                    <input id="email" name="email" type="text" placeholder="Enter Your Email*" class="form-control" value="" size="30" />
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="comment-form-comment">
-                                                                        <textarea class="form-control" placeholder="Enter Your Comment" id="comment" name="comment" cols="40" rows="6"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-submit">
-                                                                <input name="submit" type="submit" id="submit" class="submit" value="Post Comments" />
-                                                            </div>
-                                                        </form>
-                                                    </div><!-- #respond -->
-                                                </div>
-                                            </div>
-                                        </div>*@
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="tab-1">
+                                        <p>@Model.description</p>
                                     </div>
                                 </div>
-                                <div class="related products">
-                                    <h2>Sản phẩm liên quan</h2>
-                                    <div class="products row product-grid">
-                                        <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                            <div class="noo-product-inner">
-                                                <div class="noo-product-thumbnail">
-                                                    <a href="@Url.Action("Show", "Product")">
-                                                        <img width="600" height="760" src="~/Assets/images/product/product_4.jpg" alt="" />
-                                                    </a>
-                                                    <div class="noo-rating">
-                                                        <div class="star-rating">
-                                                            <span style="width:20%"></span>
-                                                        </div>
+                            </div>
+                            <div class="related products">
+                                <h2>Sản phẩm liên quan</h2>
+                                <div class="products row product-grid">
+                                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
+                                        <div class="noo-product-inner">
+                                            <div class="noo-product-thumbnail">
+                                                <a href="@Url.Action("Show", "Product")">
+                                                    <img width="600" height="760" src="~/Assets/images/product/product_4.jpg" alt="" />
+                                                </a>
+                                                <div class="noo-rating">
+                                                    <div class="star-rating">
+                                                        <span style="width:20%"></span>
                                                     </div>
                                                 </div>
-                                                <div class="noo-product-title">
-                                                    <h3><a href="@Url.Action("Show", "Product")">Carrots</a></h3>
-                                                    <span class="price"><span class="amount">&#36;1.05</span></span>
-                                                    <div class="noo-product-action">
-                                                        <div class="noo-action">
-                                                            <a href="#" class="button product_type_simple add_to_cart_button">
-                                                                <span>Thêm vào giỏ</span>
-                                                            </a>
-                                                        </div>
+                                            </div>
+                                            <div class="noo-product-title">
+                                                <h3><a href="@Url.Action("Show", "Product")">Carrots</a></h3>
+                                                <span class="price"><span class="amount">&#36;1.05</span></span>
+                                                <div class="noo-product-action">
+                                                    <div class="noo-action">
+                                                        <a href="#" class="button product_type_simple add_to_cart_button">
+                                                            <span>Thêm vào giỏ</span>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                            <div class="noo-product-inner">
-                                                <div class="noo-product-thumbnail">
-                                                    <a href="@Url.Action("Show", "Product")">
-                                                        <img width="600" height="760" src="~/Assets/images/product/product_5.jpg" alt="" />
-                                                    </a>
-                                                    <div class="noo-rating">
-                                                        <div class="star-rating">
-                                                            <span style="width:0%"></span>
-                                                        </div>
+                                    </div>
+                                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
+                                        <div class="noo-product-inner">
+                                            <div class="noo-product-thumbnail">
+                                                <a href="@Url.Action("Show", "Product")">
+                                                    <img width="600" height="760" src="~/Assets/images/product/product_5.jpg" alt="" />
+                                                </a>
+                                                <div class="noo-rating">
+                                                    <div class="star-rating">
+                                                        <span style="width:0%"></span>
                                                     </div>
                                                 </div>
-                                                <div class="noo-product-title">
-                                                    <h3><a href="@Url.Action("Show", "Product")">Celery</a></h3>
-                                                    <span class="price"><span class="amount">&#36;2.09</span></span>
-                                                    <div class="noo-product-action">
-                                                        <div class="noo-action">
-                                                            <a href="#" class="button product_type_simple add_to_cart_button">
-                                                                <span>Thêm vào giỏ</span>
-                                                            </a>
-                                                        </div>
+                                            </div>
+                                            <div class="noo-product-title">
+                                                <h3><a href="@Url.Action("Show", "Product")">Celery</a></h3>
+                                                <span class="price"><span class="amount">&#36;2.09</span></span>
+                                                <div class="noo-product-action">
+                                                    <div class="noo-action">
+                                                        <a href="#" class="button product_type_simple add_to_cart_button">
+                                                            <span>Thêm vào giỏ</span>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                            <div class="noo-product-inner">
-                                                <div class="noo-product-thumbnail">
-                                                    <a href="@Url.Action("Show", "Product")">
-                                                        <img width="600" height="760" src="~/Assets/images/product/product_16.jpg" alt="" />
-                                                    </a>
-                                                    <div class="noo-rating">
-                                                        <div class="star-rating">
-                                                            <span style="width:0%"></span>
-                                                        </div>
+                                    </div>
+                                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
+                                        <div class="noo-product-inner">
+                                            <div class="noo-product-thumbnail">
+                                                <a href="@Url.Action("Show", "Product")">
+                                                    <img width="600" height="760" src="~/Assets/images/product/product_16.jpg" alt="" />
+                                                </a>
+                                                <div class="noo-rating">
+                                                    <div class="star-rating">
+                                                        <span style="width:0%"></span>
                                                     </div>
                                                 </div>
-                                                <div class="noo-product-title">
-                                                    <h3><a href="@Url.Action("Show", "Product")">Onions</a></h3>
-                                                    <span class="price"><span class="amount">&#36;1.70</span></span>
-                                                    <div class="noo-product-action">
-                                                        <div class="noo-action">
-                                                            <a href="#" class="button product_type_simple add_to_cart_button">
-                                                                <span>Thêm vào giỏ</span>
-                                                            </a>
-                                                        </div>
+                                            </div>
+                                            <div class="noo-product-title">
+                                                <h3><a href="@Url.Action("Show", "Product")">Onions</a></h3>
+                                                <span class="price"><span class="amount">&#36;1.70</span></span>
+                                                <div class="noo-product-action">
+                                                    <div class="noo-action">
+                                                        <a href="#" class="button product_type_simple add_to_cart_button">
+                                                            <span>Thêm vào giỏ</span>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -282,82 +171,82 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="noo-sidebar col-md-3">
-                            <div class="noo-sidebar-wrap">
-                                <div class="widget commerce widget_product_search">
-                                    <h3 class="widget-title">Tìm kiếm</h3>
-                                    <form class="commerce-product-search">
-                                        <input type="search" id="commerce-product-search-field" class="search-field" placeholder="Tìm kiếm&hellip;" value="" name="s" />
-                                        <input type="submit" value="Search" />
-                                    </form>
-                                </div>
-                                <div class="widget commerce widget_product_categories">
-                                    <h3 class="widget-title">Vùng miền</h3>
-                                    <ul class="product-categories">
-                                        <li><a href="#">Miền Bắc</a></li>
-                                        <li><a href="#">Miền Trung</a></li>
-                                        <li><a href="#">Miền Nam</a></li>
-                                    </ul>
-                                </div>
-                                <div class="widget commerce widget_products">
-                                    <h3 class="widget-title">Được mua nhiều nhất</h3>
-                                    <ul class="product_list_widget">
-                                        <li>
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="100" height="100" src="~/Assets/images/product/thumb/product_1.png" alt="" />
-                                                <span class="product-title">French Bread</span>
-                                            </a>
-                                            <span class="amount">&#36;10.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="100" height="100" src="~/Assets/images/product/thumb/product_2.png" alt="" />
-                                                <span class="product-title">Cookie</span>
-                                            </a>
-                                            <span class="amount">&#36;15.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="100" height="100" src="~/Assets/images/product/thumb/product_3.png" alt="" />
-                                                <span class="product-title">Brown Bread</span>
-                                            </a>
-                                            <span class="amount">&#36;12.00</span>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="100" height="100" src="~/Assets/images/product/thumb/product_6.png" alt="" />
-                                                <span class="product-title">Apples</span>
-                                            </a>
-                                            <span class="amount">&#36;3.95</span>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="100" height="100" src="~/Assets/images/product/thumb/product_7.png" alt="" />
-                                                <span class="product-title">Pomegranates</span>
-                                            </a>
-                                            <span class="amount">&#36;3.90</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="widget commerce widget_product_tag_cloud">
-                                    <h3 class="widget-title">Sản phẩm khác</h3>
-                                    <div class="tagcloud">
-                                        <a href="#">apple</a>
-                                        <a href="#">bread</a>
-                                        <a href="#">broccoli</a>
-                                        <a href="#">brown bread</a>
-                                        <a href="#">carrot</a>
-                                        <a href="#">celery</a>
-                                        <a href="#">cookie</a>
-                                        <a href="#">cucumbers</a>
-                                        <a href="#">detox juicing</a>
-                                        <a href="#">french bread</a>
-                                        <a href="#">fruits</a>
-                                        <a href="#">green apple</a>
-                                        <a href="#">lemon</a>
-                                        <a href="#">lime</a>
-                                        <a href="#">mango</a>
-                                    </div>
+                    </div>
+                    <div class="noo-sidebar col-md-3">
+                        <div class="noo-sidebar-wrap">
+                            <div class="widget commerce widget_product_search">
+                                <h3 class="widget-title">Tìm kiếm</h3>
+                                <form class="commerce-product-search">
+                                    <input type="search" id="commerce-product-search-field" class="search-field" placeholder="Tìm kiếm&hellip;" value="" name="s" />
+                                    <input type="submit" value="Search" />
+                                </form>
+                            </div>
+                            <div class="widget commerce widget_product_categories">
+                                <h3 class="widget-title">Vùng miền</h3>
+                                <ul class="product-categories">
+                                    <li><a href="#">Miền Bắc</a></li>
+                                    <li><a href="#">Miền Trung</a></li>
+                                    <li><a href="#">Miền Nam</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget commerce widget_products">
+                                <h3 class="widget-title">Được mua nhiều nhất</h3>
+                                <ul class="product_list_widget">
+                                    <li>
+                                        <a href="@Url.Action("Show", "Product")">
+                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_1.png" alt="" />
+                                            <span class="product-title">French Bread</span>
+                                        </a>
+                                        <span class="amount">&#36;10.00</span>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Show", "Product")">
+                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_2.png" alt="" />
+                                            <span class="product-title">Cookie</span>
+                                        </a>
+                                        <span class="amount">&#36;15.00</span>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Show", "Product")">
+                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_3.png" alt="" />
+                                            <span class="product-title">Brown Bread</span>
+                                        </a>
+                                        <span class="amount">&#36;12.00</span>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Show", "Product")">
+                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_6.png" alt="" />
+                                            <span class="product-title">Apples</span>
+                                        </a>
+                                        <span class="amount">&#36;3.95</span>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Show", "Product")">
+                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_7.png" alt="" />
+                                            <span class="product-title">Pomegranates</span>
+                                        </a>
+                                        <span class="amount">&#36;3.90</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget commerce widget_product_tag_cloud">
+                                <h3 class="widget-title">Sản phẩm khác</h3>
+                                <div class="tagcloud">
+                                    <a href="#">apple</a>
+                                    <a href="#">bread</a>
+                                    <a href="#">broccoli</a>
+                                    <a href="#">brown bread</a>
+                                    <a href="#">carrot</a>
+                                    <a href="#">celery</a>
+                                    <a href="#">cookie</a>
+                                    <a href="#">cucumbers</a>
+                                    <a href="#">detox juicing</a>
+                                    <a href="#">french bread</a>
+                                    <a href="#">fruits</a>
+                                    <a href="#">green apple</a>
+                                    <a href="#">lemon</a>
+                                    <a href="#">lime</a>
+                                    <a href="#">mango</a>
                                 </div>
                             </div>
                         </div>
@@ -366,5 +255,6 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+@*</body>
+    </html>*@

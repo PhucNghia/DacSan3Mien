@@ -2,7 +2,9 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using DacSan3Mien.Models;
+@*@using DacSan3Mien.Models;*@
+@using DacSan3Mien.Models.ViewModels;
+@*@model IEnumerable<ProductRegions>*@
 
 <div class="main">
     <div class="rev_slider_wrapper fullscreen-container">
@@ -379,14 +381,6 @@
             <img width="1005" height="503" class="image-top" src="~/Assets/images/image_top.png" alt="" />
         </figure>
     </div>
-    <ul>
-        @*@foreach (var item in Model)
-        {
-
-            <li>@item.name</li>
-
-        }*@
-    </ul>
     <div class="pt-12 pb-10 clear">
         <div class="container">
             <div class="row">
@@ -400,131 +394,35 @@
                         </div>
                         <div class="row noo-product-slider products product-grid">
                             <div class="noo-product-sliders">
-                                <div class="masonry-item col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_1.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
+
+                                @foreach (var item in (List<ProductRegions>)ViewBag.northProducts)
+                                {
+                                    <div class="masonry-item col-md-4 col-sm-6 product">
+                                        <div class="noo-product-inner">
+                                            <div class="noo-product-thumbnail">
+                                                <a href="@Url.Action("Show", "Product", new { id = item.productId })">
+                                                    <img width="600" height="760" src="~/Content/images/@item.image" alt="" />
+                                                </a>
+                                                <div class="noo-rating">
+                                                    <div class="star-rating">
+                                                        <span style="width:0%"></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Apples</a></h3>
-                                            <span class="price"><span class="amount">&#36;3.95</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_2.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:60%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Broccoli</a></h3>
-                                            <span class="price"><span class="amount">&#36;2.05</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
+                                            <div class="noo-product-title">
+                                                <h3><a href="@Url.Action("Show", "Product")">@item.productName</a></h3>
+                                                <span class="price"><span class="amount">@item.price VND</span></span>
+                                                <div class="noo-product-action">
+                                                    <div class="noo-action">
+                                                        <a href="#" class="button product_type_simple add_to_cart_button">
+                                                            <span>Thêm vào giỏ</span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_9.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:20%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Limes</a></h3>
-                                            <span class="price"><span class="amount">&#36;0.75</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_10.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">True Spinach</a></h3>
-                                            <span class="price"><span class="amount">&#36;2.00</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_11.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Potatoes</a></h3>
-                                            <span class="price"><span class="amount">&#36;1.80</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -546,131 +444,34 @@
                         </div>
                         <div class="row noo-product-slider products product-grid">
                             <div class="noo-product-sliders">
-                                <div class="masonry-item col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_1.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
+                                @foreach (var item in (List<ProductRegions>)ViewBag.centralProducts)
+                                {
+                                    <div class="masonry-item col-md-4 col-sm-6 product">
+                                        <div class="noo-product-inner">
+                                            <div class="noo-product-thumbnail">
+                                                <a href="@Url.Action("Show", "Product")">
+                                                    <img width="600" height="760" src="~/Content/images/@item.image" alt="" />
+                                                </a>
+                                                <div class="noo-rating">
+                                                    <div class="star-rating">
+                                                        <span style="width:0%"></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Apples</a></h3>
-                                            <span class="price"><span class="amount">&#36;3.95</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_2.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:60%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Broccoli</a></h3>
-                                            <span class="price"><span class="amount">&#36;2.05</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
+                                            <div class="noo-product-title">
+                                                <h3><a href="@Url.Action("Show", "Product")">@item.productName</a></h3>
+                                                <span class="price"><span class="amount">@item.price VND</span></span>
+                                                <div class="noo-product-action">
+                                                    <div class="noo-action">
+                                                        <a href="#" class="button product_type_simple add_to_cart_button">
+                                                            <span>Thêm vào giỏ</span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_9.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:20%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Limes</a></h3>
-                                            <span class="price"><span class="amount">&#36;0.75</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_10.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">True Spinach</a></h3>
-                                            <span class="price"><span class="amount">&#36;2.00</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_11.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Potatoes</a></h3>
-                                            <span class="price"><span class="amount">&#36;1.80</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -692,6 +493,34 @@
                         </div>
                         <div class="row noo-product-slider products product-grid">
                             <div class="noo-product-sliders">
+                                @foreach (var item in (List<ProductRegions>)ViewBag.southProducts)
+                                {
+                                    <div class="masonry-item col-md-4 col-sm-6 product">
+                                        <div class="noo-product-inner">
+                                            <div class="noo-product-thumbnail">
+                                                <a href="@Url.Action("Show", "Product")">
+                                                    <img width="600" height="760" src="~/Content/images/@item.image" alt="" />
+                                                </a>
+                                                <div class="noo-rating">
+                                                    <div class="star-rating">
+                                                        <span style="width:0%"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="noo-product-title">
+                                                <h3><a href="@Url.Action("Show", "Product")">@item.productName</a></h3>
+                                                <span class="price"><span class="amount">@item.price VND</span></span>
+                                                <div class="noo-product-action">
+                                                    <div class="noo-action">
+                                                        <a href="#" class="button product_type_simple add_to_cart_button">
+                                                            <span>Thêm vào giỏ</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                                 <div class="masonry-item col-md-4 col-sm-6 product">
                                     <div class="noo-product-inner">
                                         <div class="noo-product-thumbnail">
@@ -707,106 +536,6 @@
                                         <div class="noo-product-title">
                                             <h3><a href="@Url.Action("Show", "Product")">Apples</a></h3>
                                             <span class="price"><span class="amount">&#36;3.95</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_2.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:60%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Broccoli</a></h3>
-                                            <span class="price"><span class="amount">&#36;2.05</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_9.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:20%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Limes</a></h3>
-                                            <span class="price"><span class="amount">&#36;0.75</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_10.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">True Spinach</a></h3>
-                                            <span class="price"><span class="amount">&#36;2.00</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_11.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Potatoes</a></h3>
-                                            <span class="price"><span class="amount">&#36;1.80</span></span>
                                             <div class="noo-product-action">
                                                 <div class="noo-action">
                                                     <a href="#" class="button product_type_simple add_to_cart_button">

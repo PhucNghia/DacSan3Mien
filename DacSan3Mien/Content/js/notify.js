@@ -13,7 +13,7 @@
             "closeButton": true,
             "positionClass": "toast-top-right",
             "onclick": null,
-            "showDuration": 2500,
+            "showDuration": 1000,
             "timeOut": 5000
         };
         toastr[msgType](message);

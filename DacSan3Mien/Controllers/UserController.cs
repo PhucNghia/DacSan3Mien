@@ -44,7 +44,8 @@ namespace DacSan3Mien.Controllers
 
         public ActionResult Logout()
         {
-            Session["currentUser"] = null;
+            Session["userID"] = null;
+            Session["userName"] = null;
             return Redirect("/");
         }
 
