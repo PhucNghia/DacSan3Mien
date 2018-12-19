@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="summary entry-summary">
                                     <h1 class="product_title entry-title">@Model.productName</h1>
-                                    <p class="price"><span class="amount">@Model.price VND</span></p>
+                                    <p class="price"><span class="amount">@Html.formatMoney((String)Model.price.ToString()) VND</span></p>
                                     <p class="description">@Model.description</p>
                                     <div class="product_meta">
                                         <span class="posted_in">Vị trí: @Model.regionName</span>

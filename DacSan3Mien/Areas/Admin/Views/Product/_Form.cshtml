@@ -1,0 +1,118 @@
+﻿@model DacSan3Mien.Models.Product
+@{
+    string title = ViewBag.Title == "Create" ? "Thêm" : ViewBag.Title == "Details" ? "Chi tiết" : "Cập nhật";
+}
+
+<div class="col-lg-12 main-chart">
+    <div class="col-lg-12">
+        <h3 class="col-lg-11 text-left title-form"> @title sản phẩm</h3>
+    </div>
+    <hr width="100%" size="1px" style="margin-top: 70px;">
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                @using (Html.BeginForm(Html.actionForm((String)ViewBag.Title), "Product", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="form-horizontal style-form">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.name, new { @class = "col-sm-2 col-sm-2 control-label text-right" })
+                                <div class="col-sm-10">
+                                    <!-- class="has-success" id="disabledInput"-->
+                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên sp..." } })
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })</span>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.price, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập giá..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.status, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập trạng thái..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.description, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập mô tả..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.regionId, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.DropDownListFor(model => model.regionId,
+                                            new SelectList(Model.listRegion, "Value","Text" ), "--- Vùng miền ---",
+                                            new { @class = "form-control select-gender" })
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.regionId, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                @Html.LabelFor(model => model.image, new { @class = "control-label col-md-2" })
+                                <div class="col-md-9">
+                                    @if (title == "Chi tiết")
+                                    {
+                                        <img width="200" height="260" src="~/Content/images/@Model.image" alt="" />
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.image, new { htmlAttributes = new { @type = "file", @class = "default" } })
+                                        <span class="text-danger">@Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })</span>
+                                    }
+
+                                    @*<div class="fileupload fileupload-new" data-provides="fileupload">
+            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+            </div>
+            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+            <div>
+                <span class="btn btn-theme02 btn-file">
+                    <span class="fileupload-new"><i class="fa fa-paperclip"></i> Chọn ảnh</span>
+                    <span class="fileupload-exists"><i class="fa fa-undo"></i> Thay đổi</span>
+                    @Html.EditorFor(model => model.image, new { htmlAttributes = new { @type = "file", @class = "default" } })
+                </span>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })</span>
+            </div>
+        </div>
+        <span class="label label-info">NOTE!</span>
+        <span>
+            Hình ảnh đính kèm chỉ được hỗ trợ trong Chrome, CocCoc, Firefox, Opera, Sarafi và IE 10
+        </span>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        @if (title == "Thêm")
+                        {
+                            <button type="reset" class="btn btn-default" data-dismiss="modal" style="margin-right: 5px;">Làm mới</button>
+                            <button type="submit" class="btn btn-primary">Thêm</button>
+                        }
+                        else if (title == "Cập nhật")
+                        {
+                            <button type="reset" class="btn btn-default" data-dismiss="modal" style="margin-right: 5px;">Làm mới</button>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Index", "Product")" class="btn btn-default" data-dismiss="modal" style="margin-right: 5px;">Quay lại</a>
+                        }
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
