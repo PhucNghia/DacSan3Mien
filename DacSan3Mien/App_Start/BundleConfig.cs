@@ -34,8 +34,10 @@ namespace DacSan3Mien
                       "~/Content/toastr.min.css"));
 
             bundles.Add(new ScriptBundle("~/Content/notifyjs").Include(
-                       "~/Scripts/toastr.min.js"));
+                       "~/Scripts/toastr.min.js",
+                       "~/Content/js/notify.js"));
 
+            // Custom
             //==================================================================================================
 
             // Layout
@@ -99,6 +101,32 @@ namespace DacSan3Mien
             // Register
             bundles.Add(new StyleBundle("~/Assets/css/register").Include(
                 "~/Assets/Register/css/register.css"));
+
+            // Admin
+            //==================================================================================================
+
+            // Layout
+            bundles.Add(new StyleBundle("~/Areas/Assets/lib/js/layout").Include(
+                "~/Assets/css/bootstrap.min.css",
+                "~/Assets/css/font-awesome.min.css",
+                "~/Areas/Admin/Assets/lib/css/zabuto_calendar.css",
+                "~/Areas/Admin/Assets/lib/gritter/css/jquery.gritter.css",
+                "~/Areas/Admin/Assets/lib/css/style.css",
+                "~/Areas/Admin/Assets/lib/css/style-responsive.css"));
+      
+            bundles.Add(new ScriptBundle("~/Areas/Assets/lib/js/layout").Include(
+                "~/Assets/js/jquery.min.js",
+                "~/Assets/js/bootstrap.min.js",
+                "~/Areas/Admin/Assets/lib/js/jquery.dcjqaccordion.2.7.js",
+                "~/Areas/Admin/Assets/lib/js/jquery.scrollTo.min.js",
+                "~/Areas/Admin/Assets/lib/js/jquery.nicescroll.js",
+                "~/Areas/Admin/Assets/lib/js/jquery.sparkline.js",
+                "~/Areas/Admin/Assets/lib/js/common-scripts.js",
+                "~/Areas/Admin/Assets/lib/js/jquery.gritter.js",
+                "~/Areas/Admin/Assets/lib/js/gritter-conf.js",
+                "~/Areas/Admin/Assets/lib/js/sparkline-chart.js",
+                "~/Areas/Admin/Assets/lib/js/zabuto_calendar.js"
+                ));
         }
-    }
+}
 }

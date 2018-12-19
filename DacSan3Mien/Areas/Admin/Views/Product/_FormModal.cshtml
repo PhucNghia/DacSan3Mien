@@ -1,0 +1,89 @@
+﻿@model DacSan3Mien.Models.Product
+<!-- Modal -->
+<div id="form-product" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header form-product-modal">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thêm sản phẩm</h4>
+            </div>
+            @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="form-horizontal style-form">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.name, new { @class = "col-sm-2 col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                <!-- class="has-success" id="disabledInput"-->
+                                @*<input type="text" class="form-control" placeholder="placeholder">*@
+                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập tên sp..."} })
+                                <span class="text-danger">@Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.price, new { @class = "col-sm-2 col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="placeholder">
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.status, new { @class = "col-sm-2 col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="placeholder">
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.description, new { @class = "col-sm-2 col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="placeholder">
+                                <span class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.regionId, new { @class = "col-sm-2 col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                <select class="form-control">
+                                    <option>Miền Bắc</option>
+                                    <option>Miền Trung</option>
+                                    <option>Miền Nam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            @Html.LabelFor(model => model.image, new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+                                    </div>
+                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                    <div>
+                                        <span class="btn btn-theme02 btn-file">
+                                            <span class="fileupload-new"><i class="fa fa-paperclip"></i> Chọn ảnh</span>
+                                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Thay đổi</span>
+                                            <input type="file" class="default" />
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="label label-info">NOTE!</span>
+                                <span>
+                                    Hình ảnh đính kèm chỉ được hỗ trợ trong Chrome, CocCoc, Firefox, Opera, Sarafi và IE 10
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

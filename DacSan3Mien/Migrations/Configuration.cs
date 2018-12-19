@@ -34,7 +34,7 @@ namespace DacSan3Mien.Migrations
                     name = "Admin";
                     role = "admin";
                     email = "admin@gmail.com";
-                    pass = "admin"; 
+                    pass = "111111";
                 }
                 else
                 {

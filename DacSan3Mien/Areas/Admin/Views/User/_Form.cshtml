@@ -1,0 +1,121 @@
+﻿
+@model DacSan3Mien.Models.User
+@{
+    string title = ViewBag.Title == "Create" ? "Thêm" : ViewBag.Title == "Details" ? "Chi tiết" : "Cập nhật";
+}
+
+<div class="col-lg-12 main-chart">
+    <div class="col-lg-12">
+        <h3 class="col-lg-11 text-left title-form"> @title người dùng</h3>
+    </div>
+    <hr width="100%" size="1px;" style="margin-top: 70px;">
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                @using (Html.BeginForm(Html.actionForm((String)ViewBag.Title), "User", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">
+                        <div class="form-horizontal style-form">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @if (title.Equals("Chi tiết"))
+                            {
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.id, new { @class = "col-sm-2 col-sm-2 control-label text-right" })
+                                    <div class="col-sm-10">
+                                        @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tên sp..." } })
+                                        <span class="text-danger">@Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })</span>
+                                    </div>
+                                </div>
+                            }
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.name, new { @class = "col-sm-2 col-sm-2 control-label text-right" })
+                                <div class="col-sm-10">
+                                    <!-- class="has-success" id="disabledInput"-->
+                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập họ tên..." } })
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.email, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập email..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.birthday, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.birthday, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập ngày sinh..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.birthday, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.gender, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.DropDownListFor(model => model.gender,
+                                            new SelectList(Model.listGender, "Value","Text" ), "--- Giới tính ---",
+                                            new { @class = "form-control select-gender" })
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.phone, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập số điện thoại..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.address, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập địa chỉ..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            @if (title.Equals("Thêm") || title.Equals("Cập nhật"))
+                            {
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.password, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type = "password",
+                                            @placeholder = "Nhập mật khẩu..."}})
+                                        <span class="text-danger">@Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.confirmPassword, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control", @type = "password",
+                                       @placeholder = "Nhập lại mật khẩu..."}})
+                                        <span class="text-danger">@Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        @if (title == "Thêm")
+                        {
+                            <button type="reset" class="btn btn-default" data-dismiss="modal" style="margin-right: 5px;">Làm mới</button>
+                            <button type="submit" class="btn btn-primary">Thêm</button>
+                        }
+                        else if (title == "Cập nhật")
+                        {
+                            <button type="reset" class="btn btn-default" data-dismiss="modal" style="margin-right: 5px;">Làm mới</button>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Index", "User")" class="btn btn-default" data-dismiss="modal" style="margin-right: 5px;">Quay lại</a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

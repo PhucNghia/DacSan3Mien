@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="col-lg-9 main-chart">
+    <!--CUSTOM CHART START -->
+    <div class="border-head">
+        <h3>Lượng truy cập</h3>
+    </div>
+    <div class="custom-bar-chart">
+        <ul class="y-axis">
+            <li><span>1.000</span></li>
+            <li><span>800</span></li>
+            <li><span>600</span></li>
+            <li><span>400</span></li>
+            <li><span>200</span></li>
+            <li><span>0</span></li>
+        </ul>
+        <div class="bar">
+            <div class="title">15/12/2018</div>
+            <div class="value tooltips" data-original-title="800" data-toggle="tooltip" data-placement="top">85%</div>
+        </div>
+        <div class="bar ">
+            <div class="title">16/12/2018</div>
+            <div class="value tooltips" data-original-title="500" data-toggle="tooltip" data-placement="top">50%</div>
+        </div>
+        <div class="bar ">
+            <div class="title">17/12/2018</div>
+            <div class="value tooltips" data-original-title="400" data-toggle="tooltip" data-placement="top">40%</div>
+        </div>
+        <div class="bar ">
+            <div class="title">18/12/2018</div>
+            <div class="value tooltips" data-original-title="700" data-toggle="tooltip" data-placement="top">70%</div>
+        </div>
+        <div class="bar ">
+            <div class="title">19/12/2018</div>
+            <div class="value tooltips" data-original-title="400" data-toggle="tooltip" data-placement="top">40%</div>
+        </div>
+        <div class="bar ">
+            <div class="title">20/12/2018</div>
+            <div class="value tooltips" data-original-title="900" data-toggle="tooltip" data-placement="top">90%</div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 ds">
+    <!-- CALENDAR-->
+    <div id="calendar" class="mb">
+        <div class="panel green-panel no-margin">
+            <div class="panel-body">
+                <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+                    <div class="arrow"></div>
+                    <h3 class="popover-title" style="disadding: none;"></h3>
+                    <div id="date-popover-content" class="popover-content"></div>
+                </div>
+                <div id="my-calendar"></div>
+            </div>
+        </div>
+    </div>
+    <!-- / calendar -->
+</div>
