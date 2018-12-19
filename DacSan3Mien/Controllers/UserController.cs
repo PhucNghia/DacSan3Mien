@@ -64,6 +64,12 @@ namespace DacSan3Mien.Controllers
                 user.role = "user";
                 db.Users.Add(user);
                 db.SaveChanges();
+                if(Session["userID"] == null && Session["userName"] == null)
+                {
+                    Session["userID"] = user.id;
+                    Session["userName"] = user.name;
+                }
+
                 TempData["success"] = "Thêm thành công!";
                 return RedirectToAction("Index", "Home");
             }

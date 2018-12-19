@@ -12,11 +12,11 @@ namespace DacSan3Mien.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        name = c.String(),
-                        image = c.String(),
+                        name = c.String(nullable: false),
+                        image = c.String(nullable: false),
                         price = c.Single(nullable: false),
-                        status = c.String(),
-                        description = c.String(),
+                        status = c.String(nullable: false),
+                        description = c.String(nullable: false),
                         regionId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)

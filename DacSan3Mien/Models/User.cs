@@ -10,6 +10,7 @@ namespace DacSan3Mien.Models
     public class User
     {
         public int id { get; set; }
+
         [Display(Name = "Họ tên")]
         [Required(ErrorMessage = "{0} không được để trống!")]
         public string name { get; set; }

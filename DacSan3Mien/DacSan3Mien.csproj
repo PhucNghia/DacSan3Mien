@@ -155,6 +155,34 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="Areas\Admin\Assets\css\Product\form.css" />
+    <Content Include="Areas\Admin\Assets\js\FormProduct.js" />
+    <Content Include="Areas\Admin\Assets\js\FormUser.js" />
+    <Content Include="Areas\Admin\Assets\js\IndexProduct.js" />
+    <Content Include="Areas\Admin\Assets\lib\css\bootstrap-fileupload.css" />
+    <Content Include="Areas\Admin\Assets\lib\css\style-responsive.css" />
+    <Content Include="Areas\Admin\Assets\lib\css\style.css" />
+    <Content Include="Areas\Admin\Assets\lib\css\table-responsive.css" />
+    <Content Include="Areas\Admin\Assets\lib\css\to-do.css" />
+    <Content Include="Areas\Admin\Assets\lib\css\zabuto_calendar.css" />
+    <Content Include="Areas\Admin\Assets\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Assets\lib\js\bootstrap-fileupload.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\common-scripts.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\gritter-conf.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\jquery.gritter.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\jquery.min.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\jquery.nicescroll.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\jquery.scrollTo.min.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\jquery.sparkline.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\sparkline-chart.js" />
+    <Content Include="Areas\Admin\Assets\lib\js\zabuto_calendar.js" />
+    <Content Include="Areas\Admin\Assets\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Assets\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Assets\lib\gritter\css\jquery.gritter.css" />
+    <Content Include="Areas\Admin\Assets\lib\gritter\css\jquery.gritter0.css" />
+    <Content Include="Areas\Admin\Assets\lib\gritter\js\jquery.gritter.js" />
     <Content Include="Assets\images\favicon.jpg" />
     <Content Include="Content\images\banh_da_ke.jpg" />
     <Content Include="Content\images\banh_pia.jpg" />
@@ -181,6 +209,11 @@
     <Content Include="Content\images\thuoc_tam_giao_do.jpg" />
     <Content Include="Content\images\tom_chua.jpg" />
     <Content Include="Content\js\notify.js" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Helper\LayoutHelper.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -190,9 +223,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\Product\ProductHelper.cs" />
-    <Compile Include="Migrations\201812131125118_InitialCreate.cs" />
-    <Compile Include="Migrations\201812131125118_InitialCreate.Designer.cs">
-      <DependentUpon>201812131125118_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201812181602426_InitialCreate.cs" />
+    <Compile Include="Migrations\201812181602426_InitialCreate.Designer.cs">
+      <DependentUpon>201812181602426_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext.cs" />
@@ -582,6 +615,9 @@
     <Content Include="Content\default\bootstrap-theme.min.css" />
     <Content Include="Content\default\bootstrap.css" />
     <Content Include="Content\default\bootstrap.min.css" />
+    <Content Include="Content\sweetalert\sweetalert.css" />
+    <Content Include="Content\sweetalert\sweetalert.js" />
+    <Content Include="Content\sweetalert\sweetalert.min.js" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -683,6 +719,28 @@
     <Content Include="Assets\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
+    <Content Include="Areas\Admin\Assets\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Assets\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Assets\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Assets\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Assets\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_FormModal.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_Form.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User\_Form.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -722,9 +780,12 @@
     <Content Include="Views\Regions\Details.cshtml" />
     <Content Include="Views\Regions\Edit.cshtml" />
     <Content Include="Views\Regions\Index.cshtml" />
+    <Content Include="Views\Sweet\Alert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\LaybleHelper\" />
     <Folder Include="Content\css\" />
   </ItemGroup>
   <ItemGroup>
@@ -744,8 +805,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812131125118_InitialCreate.resx">
-      <DependentUpon>201812131125118_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812181602426_InitialCreate.resx">
+      <DependentUpon>201812181602426_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

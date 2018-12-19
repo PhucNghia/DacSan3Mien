@@ -58,7 +58,7 @@
                                     <span class="input-group-addon icon-gender"><i class="fa fa-transgender" aria-hidden="true"></i></span>
                                     <div class="editor-field">
                                         @Html.DropDownListFor(model => model.gender,
-                                            new SelectList(Model.listGender, "Text", "Value"), "--- Giới tính ---",
+                                            new SelectList(Model.listGender, "Value", "Text"), "--- Giới tính ---",
                                             new { @class = "form-control select-gender" })          
                                     </div>
                                 </div>

@@ -1,0 +1,52 @@
+﻿@using DacSan3Mien.Models.ViewModels
+@model List<ProductRegions>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 main-chart">
+    <div class="col-lg-12">
+        <h3 class="col-lg-11 text-left"> Danh sách sản phẩm</h3>
+        <a class="btn btn-primary col-lg-1 text-left" style="margin-top: 15px;" href="@Url.Action("Create", "Product")">Thêm mới</a>
+        @*<button class="btn btn-primary col-lg-1 text-left" style="margin-top: 15px;" data-toggle="modal" data-target="#form-product">Thêm mới</button>
+            @Html.Partial("~/Areas/Admin/Views/Product/_Form.cshtml", new Product())*@
+    </div>
+    <table class="table table-striped table-advance table-hover">
+        <hr width="100%" size="1px" style="margin-top: 70px;">
+        <thead>
+            <tr>
+                <th class="text-center"><i class="fa fa-file-code-o"></i> Mã</th>
+                <th><i class="fa fa-product-hunt"></i> Tên</th>
+                <th><i class="fa fa"></i> Giá (vnd)</th>
+                <th><i class="fa fa-check"></i> Trạng thái</th>
+                <th><i class="fa fa-area-chart"></i> Vùng miền</th>
+                <th class="text-center"><i class="fa fa-edit"></i> Tùy chọn</th>
+            </tr>
+        </thead>
+        <tbody class="product-list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center" id="product-id">@item.productId</td>
+                    <td class="hidden-phone">@item.productName</td>
+                    <td>@Html.formatMoney((String)item.price.ToString())</td>
+                    <td>còn hàng</td>
+                    <td>@item.regionName</td>
+                    <td class="text-center">
+                        <a class="btn btn-success btn-xs"
+                           href="@Url.Action("Details", "Product", new { id=item.productId })">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                        <a class="btn btn-primary btn-xs"
+                           href="@Url.Action("Edit", "Product", new { id=item.productId })">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <button class="btn btn-danger btn-xs delete-product">
+                            <i class="fa fa-trash-o"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
