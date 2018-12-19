@@ -414,9 +414,12 @@
                                                 <span class="price"><span class="amount">@Html.formatMoney((String)item.price.ToString()) VND</span></span>
                                                 <div class="noo-product-action">
                                                     <div class="noo-action">
-                                                        <a href="#" class="button product_type_simple add_to_cart_button">
-                                                            <span>Thêm vào giỏ</span>
-                                                        </a>
+                                                        @using (Html.BeginForm("Create", "BookingCart", new { @productId = item.productId }))
+                                                        {
+                                                            <a href="javascript:;" class="button product_type_simple add_to_cart_button">
+                                                                <span>Thêm vào giỏ</span>
+                                                            </a>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
@@ -463,9 +466,12 @@
                                                 <span class="price"><span class="amount">@Html.formatMoney((String)item.price.ToString()) VND</span></span>
                                                 <div class="noo-product-action">
                                                     <div class="noo-action">
-                                                        <a href="#" class="button product_type_simple add_to_cart_button">
-                                                            <span>Thêm vào giỏ</span>
-                                                        </a>
+                                                        @using (Html.BeginForm("Create", "BookingCart", new { @productId = item.productId }))
+                                                        {
+                                                            <a href="javascript:;" class="button product_type_simple add_to_cart_button">
+                                                                <span>Thêm vào giỏ</span>
+                                                            </a>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
@@ -512,40 +518,18 @@
                                                 <span class="price"><span class="amount">@Html.formatMoney((String)item.price.ToString()) VND</span></span>
                                                 <div class="noo-product-action">
                                                     <div class="noo-action">
-                                                        <a href="#" class="button product_type_simple add_to_cart_button">
-                                                            <span>Thêm vào giỏ</span>
-                                                        </a>
+                                                        @using (Html.BeginForm("Create", "BookingCart", new { @productId = item.productId }))
+                                                        {
+                                                            <a href="javascript:;" class="button product_type_simple add_to_cart_button">
+                                                                <span>Thêm vào giỏ</span>
+                                                            </a>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 }
-                                <div class="masonry-item col-md-4 col-sm-6 product">
-                                    <div class="noo-product-inner">
-                                        <div class="noo-product-thumbnail">
-                                            <a href="@Url.Action("Show", "Product")">
-                                                <img width="600" height="760" src="~/Assets/images/product/product_1.jpg" alt="" />
-                                            </a>
-                                            <div class="noo-rating">
-                                                <div class="star-rating">
-                                                    <span style="width:0%"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="noo-product-title">
-                                            <h3><a href="@Url.Action("Show", "Product")">Apples</a></h3>
-                                            <span class="price"><span class="amount">&#36;3.95</span></span>
-                                            <div class="noo-product-action">
-                                                <div class="noo-action">
-                                                    <a href="#" class="button product_type_simple add_to_cart_button">
-                                                        <span>Thêm vào giỏ</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

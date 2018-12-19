@@ -41,20 +41,22 @@
                                 </div>
                                 <div class="summary entry-summary">
                                     <h1 class="product_title entry-title">@Model.productName</h1>
-                                    <p class="price"><span class="amount">@Html.formatMoney((String)Model.price.ToString()) VND</span></p>
+                                    <p class="price"><span class="amount">@Html.formatMoney((String)Model.price.ToString()) VNĐ</span></p>
                                     <p class="description">@Model.description</p>
                                     <div class="product_meta">
                                         <span class="posted_in">Vị trí: @Model.regionName</span>
                                     </div>
-                                    <form class="cart">
+
+                                    @using (Html.BeginForm("Create", "BookingCart", new { @productId = Model.productId }, FormMethod.Post, new { @class = "cart" }))
+                                    {
                                         <div class="quantity">
                                             <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
                                         </div>
-                                        <button type="submit" class="single_add_to_cart_button button">Thêm vào giỏ</button>
-                                    </form>
+                                        <button type="submit" class="button">Thêm vào giỏ</button>
+                                    }
                                     <div class="yith-wcwl-add-to-wishlist">
                                         <div class="yith-wcwl-add-button">
-                                            <a href="#" class="add_to_wishlist"></a>
+                                            <a href="javascript:;" class="add_to_wishlist"></a>
                                         </div>
                                     </div>
                                     <div class="clear"></div>

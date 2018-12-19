@@ -18,15 +18,18 @@
             </div>
             <div class="noo-product-action">
                 <div class="noo-action">
-                    <a href="#" class="button product_type_simple add_to_cart_button">
-                        <span>Thêm vào giỏ</span>
-                    </a>
-                    <div class="yith-wcwl-add-to-wishlist">
-                        <div class="yith-wcwl-add-button">
-                            <a href="#" class="add_to_wishlist"></a>
+                    @using (Html.BeginForm("Create", "BookingCart", new { @productId = Model.id }))
+                    {
+                        <a href="javascript:;" class="button product_type_simple add_to_cart_button">
+                            <span>Thêm vào giỏ</span>
+                        </a>
+                    }
+                        <div class="yith-wcwl-add-to-wishlist">
+                            <div class="yith-wcwl-add-button">
+                                <a href="javascript:;" class="add_to_wishlist"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

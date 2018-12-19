@@ -183,6 +183,7 @@
     <Content Include="Areas\Admin\Assets\lib\gritter\css\jquery.gritter.css" />
     <Content Include="Areas\Admin\Assets\lib\gritter\css\jquery.gritter0.css" />
     <Content Include="Areas\Admin\Assets\lib\gritter\js\jquery.gritter.js" />
+    <Content Include="Assets\BookingCart\js\BookingCart.js" />
     <Content Include="Assets\images\favicon.jpg" />
     <Content Include="Content\images\banh_da_ke.jpg" />
     <Content Include="Content\images\banh_pia.jpg" />
@@ -210,11 +211,13 @@
     <Content Include="Content\images\tom_chua.jpg" />
     <Content Include="Content\js\notify.js" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Helper\LayoutHelper.cs" />
-    <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModel\OrderViewModel.cs" />
+    <Compile Include="Controllers\BookingCartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
@@ -223,15 +226,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\Product\ProductHelper.cs" />
-    <Compile Include="Migrations\201812181602426_InitialCreate.cs" />
-    <Compile Include="Migrations\201812181602426_InitialCreate.Designer.cs">
-      <DependentUpon>201812181602426_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201812190246323_InitialCreate.cs" />
+    <Compile Include="Migrations\201812190246323_InitialCreate.Designer.cs">
+      <DependentUpon>201812190246323_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Region.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModels\BookingCart.cs" />
     <Compile Include="Models\ViewModels\ProductRegions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -729,7 +735,6 @@
     <Content Include="Areas\Admin\Assets\lib\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Product\_FormModal.cshtml" />
     <Content Include="Areas\Admin\Views\Product\_Form.cshtml" />
@@ -741,6 +746,7 @@
     <Content Include="Areas\Admin\Views\User\_Form.cshtml" />
     <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -781,11 +787,11 @@
     <Content Include="Views\Regions\Edit.cshtml" />
     <Content Include="Views\Regions\Index.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
+    <Content Include="Views\BookingCart\Index.cshtml" />
+    <Content Include="Views\BookingCart\totalBookingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\LaybleHelper\" />
     <Folder Include="Content\css\" />
   </ItemGroup>
   <ItemGroup>
@@ -805,8 +811,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812181602426_InitialCreate.resx">
-      <DependentUpon>201812181602426_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812190246323_InitialCreate.resx">
+      <DependentUpon>201812190246323_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

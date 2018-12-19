@@ -101,13 +101,13 @@
                         </a>
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;">
+                        <a href="@Url.Action("Index", "Order")" class="@Html.activeNavbar("Order", currentController)">
                             <i class="fa fa-shopping-cart"></i><span>Quản lý đặt hàng</span>
                         </a>
-                        <ul class="sub">
+                        @*<ul class="sub">
                             <li><a href="#">Đặt hàng thành công</a></li>
                             <li><a href="#">Đơn đã hủy</a></li>
-                        </ul>
+                        </ul>*@
                     </li>
                 </ul>
                 <!-- sidebar menu end-->

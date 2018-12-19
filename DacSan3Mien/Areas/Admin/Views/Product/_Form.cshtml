@@ -43,6 +43,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                @Html.LabelFor(model => model.quantity, new { @class = "col-sm-2 col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control",
+                                        @placeholder = "Nhập số lượng..."}})
+                                    <span class="text-danger">@Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 @Html.LabelFor(model => model.description, new { @class = "col-sm-2 col-sm-2 control-label" })
                                 <div class="col-sm-10">
                                     @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control",
@@ -73,23 +81,23 @@
                                     }
 
                                     @*<div class="fileupload fileupload-new" data-provides="fileupload">
-            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
-            </div>
-            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-            <div>
-                <span class="btn btn-theme02 btn-file">
-                    <span class="fileupload-new"><i class="fa fa-paperclip"></i> Chọn ảnh</span>
-                    <span class="fileupload-exists"><i class="fa fa-undo"></i> Thay đổi</span>
-                    @Html.EditorFor(model => model.image, new { htmlAttributes = new { @type = "file", @class = "default" } })
-                </span>
-                <span class="text-danger">@Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })</span>
-            </div>
-        </div>
-        <span class="label label-info">NOTE!</span>
-        <span>
-            Hình ảnh đính kèm chỉ được hỗ trợ trong Chrome, CocCoc, Firefox, Opera, Sarafi và IE 10
-        </span>*@
+                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+                    </div>
+                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                    <div>
+                        <span class="btn btn-theme02 btn-file">
+                            <span class="fileupload-new"><i class="fa fa-paperclip"></i> Chọn ảnh</span>
+                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Thay đổi</span>
+                            @Html.EditorFor(model => model.image, new { htmlAttributes = new { @type = "file", @class = "default" } })
+                        </span>
+                        <span class="text-danger">@Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })</span>
+                    </div>
+                </div>
+                <span class="label label-info">NOTE!</span>
+                <span>
+                    Hình ảnh đính kèm chỉ được hỗ trợ trong Chrome, CocCoc, Firefox, Opera, Sarafi và IE 10
+                </span>*@
                                 </div>
                             </div>
                         </div>

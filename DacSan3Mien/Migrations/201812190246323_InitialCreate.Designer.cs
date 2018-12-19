@@ -13,7 +13,7 @@ namespace DacSan3Mien.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201812181602426_InitialCreate"; }
+            get { return "201812190246323_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
