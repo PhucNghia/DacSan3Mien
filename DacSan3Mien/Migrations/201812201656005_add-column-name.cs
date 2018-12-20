@@ -3,10 +3,20 @@ namespace DacSan3Mien.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class addcolumnname : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.AccessQuantities",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        quantity = c.Int(nullable: false),
+                        date = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.id);
+            
             CreateTable(
                 "dbo.OrderDetails",
                 c => new
@@ -93,6 +103,7 @@ namespace DacSan3Mien.Migrations
             DropTable("dbo.Users");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderDetails");
+            DropTable("dbo.AccessQuantities");
         }
     }
 }

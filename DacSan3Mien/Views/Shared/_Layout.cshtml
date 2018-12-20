@@ -9,20 +9,19 @@
 
     <!--Layout-->
     @Styles.Render("~/Assets/css/css1")
-    @*<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all' />
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all' />
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Anonymous+Pro:' type='text/css' media='all' />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:700" type="text/css" media="all" />*@
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Pacifico:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Anonymous+Pro:' type='text/css' media='all' />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:700" type="text/css" media="all" />
     @Styles.Render("~/Assets/css/css2")
-
     <!--Notify-->
     @Styles.Render("~/Content/notifycss")
-
     <!--Login-->
     @Styles.Render("~/Assets/css/Login")
-
     <!--Register-->
     @Styles.Render("~/Assets/css/register")
+    <link href="~/Assets/Product/css/product.css" rel="stylesheet" />
+
 </head>
 <body>
     <div class="noo-spinner">
@@ -33,10 +32,11 @@
     </div>
     <div class="site">
         @Html.Partial("~/Views/Shared/_Header.cshtml");
-
         <!--Notify-->
         <input type="hidden" id="success" value="@TempData["success"]" />
         <input type="hidden" id="error" value="@TempData["error"]" />
+        <!--Quantity of access-->
+        <input type="hidden" id="access-quantity" value="@Html.checkAccess().ToString()" />
 
         @RenderBody()
 
@@ -45,16 +45,16 @@
 
     <!--Layout-->
     @Scripts.Render("~/Assets/js/layout")
-
     <!--Notify-->
     @Scripts.Render("~/Content/notifyjs")
     @*<script src="~/Content/js/notify.js"></script>*@
-
     <!--Login-->
     @Scripts.Render("~/Assets/js/Login")
-
     <!--Booking Cart-->
     <script src="~/Assets/BookingCart/js/BookingCart.js"></script>
-
+    <!--Product-->
+    <script src="~/Assets/Product/js/product.js"></script>
+    <!--Quantity of access-->
+    <script src="~/Assets/AccessQuantity/AccessQuantity.js"></script>
 </body>
 </html>

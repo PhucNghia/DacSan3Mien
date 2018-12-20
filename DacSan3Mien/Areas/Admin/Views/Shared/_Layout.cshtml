@@ -33,7 +33,8 @@
             </div>
             <!--logo start-->
             <a href="@Url.Action("Index", "Home", new { area = "" })" class="logo"><b>Đặc sản<span> 3 miền</span></b></a>
-            <!--logo end-->
+            <!--Quantity of access-->
+            <input type="hidden" id="access-quantity" value="@Html.checkAccess().ToString()" />
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
@@ -73,7 +74,7 @@
             </div>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Đăng xuất</a></li>
+                    <li><a class="logout" href="@Url.Action("Logout", "User", new { area="" })">Đăng xuất</a></li>
                 </ul>
             </div>
         </header>
@@ -101,16 +102,15 @@
                         </a>
                     </li>
                     <li class="sub-menu">
-                        <a href="@Url.Action("Index", "Order")" class="@Html.activeNavbar("Order", currentController)">
+                        <a href="javascript:;" class="@Html.activeNavbar("Order", currentController)">
                             <i class="fa fa-shopping-cart"></i><span>Quản lý đặt hàng</span>
                         </a>
-                        @*<ul class="sub">
-                            <li><a href="#">Đặt hàng thành công</a></li>
-                            <li><a href="#">Đơn đã hủy</a></li>
-                        </ul>*@
+                        <ul class="sub">
+                            <li><a href="@Url.Action("Index", "Order")">Đặt hàng thành công</a></li>
+                            <li><a href="javascript:;">Đơn đã hủy</a></li>
+                        </ul>
                     </li>
                 </ul>
-                <!-- sidebar menu end-->
             </div>
         </aside>
 
@@ -127,13 +127,10 @@
         </section>
         <!--main content end-->
         <!--footer start-->
-        <footer class="site-footer" style="margin-top: 97px;">
+        <footer class="site-footer" style="margin-top: 90px;">
             <div class="text-center">
-                <p>
-                    &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-                </p>
                 <div class="credits">
-                    Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
+                    &copy; Đặc sản 3 miền | Nhóm 2 - Công nghệ thông tin 1 K10</a>
                 </div>
                 <a href="index.html#" class="go-top">
                     <i class="fa fa-angle-up"></i>
@@ -169,6 +166,11 @@
     <script src="~/Areas/Admin/Assets/js/FormProduct.js"></script>
     <!--FormUser-->
     <script src="~/Areas/Admin/Assets/js/FormUser.js"></script>
+    <!--Quantity of access-->
+    <script src="~/Assets/AccessQuantity/AccessQuantity.js"></script>
+    <!--Panigation-->
+    <script src="~/Areas/Admin/Assets/js/pagination.js"></script>
+
     @*@Scripts.Render("~/Areas/Assets/lib/js/layout")*@
     <script type="application/javascript">
         $(document).ready(function() {

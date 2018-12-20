@@ -1,5 +1,6 @@
 ﻿@using DacSan3Mien.Models.ViewModels
-@model List<ProductRegions>
+@using PagedList.Mvc
+@model PagedList.PagedList<ProductRegions>
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -49,4 +50,7 @@
             }
         </tbody>
     </table>
+    <div class="col-md-12 pagination-user text-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
 </div>

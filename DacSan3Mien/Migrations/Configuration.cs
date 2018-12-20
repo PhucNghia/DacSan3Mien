@@ -59,6 +59,17 @@ namespace DacSan3Mien.Migrations
             }
             users.ForEach(u => context.Users.AddOrUpdate(p => p.id, u));
             context.SaveChanges();
+            var accessQuantities = new List<AccessQuantity>
+            {
+                new AccessQuantity{quantity = 800, date = Convert.ToDateTime("2018/12/15") },
+                new AccessQuantity{quantity = 500, date = Convert.ToDateTime("2018/12/16") },
+                new AccessQuantity{quantity = 400, date = Convert.ToDateTime("2018/12/17") },
+                new AccessQuantity{quantity = 700, date = Convert.ToDateTime("2018/12/18") },
+                new AccessQuantity{quantity = 600, date = Convert.ToDateTime("2018/12/19") },
+                new AccessQuantity{quantity = 900, date = Convert.ToDateTime("2018/12/20") }
+            };
+            accessQuantities.ForEach(a => context.AccessQuantities.AddOrUpdate(aq => aq.id, a));
+            context.SaveChanges();
 
             var regions = new List<Region>
             {

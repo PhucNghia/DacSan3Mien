@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using DacSan3Mien.Models;
+using PagedList;
 
 namespace DacSan3Mien.Areas.Admin.Controllers
 {
@@ -13,31 +13,31 @@ namespace DacSan3Mien.Areas.Admin.Controllers
     {
         private DataContext db = new DataContext();
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
-            var users = db.Users.ToList();
+            if (!checkAdmin())  return Redirect("/");
+            IEnumerable<User> users = db.Users.OrderBy(n => n.name).ToPagedList(page, pageSize);
 
             return View(users);
         }
 
         public ActionResult Details(int? id)
         {
+            if (!checkAdmin()) return Redirect("/");
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             User user = db.Users.Find(id);
             if (user == null)
-            {
                 return HttpNotFound();
-            }
             user.listGender = getListGender();
+
             return View(user);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
+            if (!checkAdmin()) return Redirect("/");
             User user = new User();
             user.listGender = getListGender();
 
@@ -62,6 +62,7 @@ namespace DacSan3Mien.Areas.Admin.Controllers
 
         public ActionResult Edit(int? id)
         {
+            if (!checkAdmin()) return Redirect("/");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +110,20 @@ namespace DacSan3Mien.Areas.Admin.Controllers
             list.Add(nam);
             list.Add(nu);
             return list;
+        }
+
+        public bool checkAdmin()
+        {
+            if(Session["userID"] == null)
+                return false;
+            else
+            {
+                User user = db.Users.Find(int.Parse(Session["userId"].ToString()));
+                if (user.role == "user")
+                    return false;
+                else
+                    return true;
+            }
         }
     }
 }

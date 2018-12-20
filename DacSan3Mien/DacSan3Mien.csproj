@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -156,9 +162,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="Areas\Admin\Assets\css\Product\form.css" />
+    <Content Include="Areas\Admin\Assets\css\User\user.css" />
     <Content Include="Areas\Admin\Assets\js\FormProduct.js" />
     <Content Include="Areas\Admin\Assets\js\FormUser.js" />
     <Content Include="Areas\Admin\Assets\js\IndexProduct.js" />
+    <Content Include="Areas\Admin\Assets\js\pagination.js" />
     <Content Include="Areas\Admin\Assets\lib\css\bootstrap-fileupload.css" />
     <Content Include="Areas\Admin\Assets\lib\css\style-responsive.css" />
     <Content Include="Areas\Admin\Assets\lib\css\style.css" />
@@ -183,8 +191,11 @@
     <Content Include="Areas\Admin\Assets\lib\gritter\css\jquery.gritter.css" />
     <Content Include="Areas\Admin\Assets\lib\gritter\css\jquery.gritter0.css" />
     <Content Include="Areas\Admin\Assets\lib\gritter\js\jquery.gritter.js" />
+    <Content Include="Assets\AccessQuantity\AccessQuantity.js" />
     <Content Include="Assets\BookingCart\js\BookingCart.js" />
     <Content Include="Assets\images\favicon.jpg" />
+    <Content Include="Assets\Product\css\product.css" />
+    <Content Include="Assets\Product\js\product.js" />
     <Content Include="Content\images\banh_da_ke.jpg" />
     <Content Include="Content\images\banh_pia.jpg" />
     <Content Include="Content\images\banh_tet.jpg" />
@@ -217,6 +228,7 @@
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Helper\LayoutHelper.cs" />
     <Compile Include="Areas\Admin\Models\ViewModel\OrderViewModel.cs" />
+    <Compile Include="Controllers\AccessQuantityController.cs" />
     <Compile Include="Controllers\BookingCartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -225,12 +237,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AccessQuantity\AccessQuantityHelper.cs" />
     <Compile Include="Helper\Product\ProductHelper.cs" />
-    <Compile Include="Migrations\201812190246323_InitialCreate.cs" />
-    <Compile Include="Migrations\201812190246323_InitialCreate.Designer.cs">
-      <DependentUpon>201812190246323_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201812201656005_add-column-name.cs" />
+    <Compile Include="Migrations\201812201656005_add-column-name.Designer.cs">
+      <DependentUpon>201812201656005_add-column-name.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccessQuantity.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -621,6 +635,7 @@
     <Content Include="Content\default\bootstrap-theme.min.css" />
     <Content Include="Content\default\bootstrap.css" />
     <Content Include="Content\default\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\sweetalert\sweetalert.css" />
     <Content Include="Content\sweetalert\sweetalert.js" />
     <Content Include="Content\sweetalert\sweetalert.min.js" />
@@ -793,6 +808,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
+    <Folder Include="Views\AccessQuantity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -811,8 +827,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812190246323_InitialCreate.resx">
-      <DependentUpon>201812190246323_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812201656005_add-column-name.resx">
+      <DependentUpon>201812201656005_add-column-name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
