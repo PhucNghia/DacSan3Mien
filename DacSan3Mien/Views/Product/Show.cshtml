@@ -41,20 +41,22 @@
                                 </div>
                                 <div class="summary entry-summary">
                                     <h1 class="product_title entry-title">@Model.productName</h1>
-                                    <p class="price"><span class="amount">@Html.formatMoney((String)Model.price.ToString()) VND</span></p>
+                                    <p class="price"><span class="amount">@Html.formatMoney((String)Model.price.ToString()) VNĐ</span></p>
                                     <p class="description">@Model.description</p>
                                     <div class="product_meta">
                                         <span class="posted_in">Vị trí: @Model.regionName</span>
                                     </div>
-                                    <form class="cart">
+
+                                    @using (Html.BeginForm("Create", "BookingCart", new { @productId = Model.productId }, FormMethod.Post, new { @class = "cart" }))
+                                    {
                                         <div class="quantity">
                                             <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
                                         </div>
-                                        <button type="submit" class="single_add_to_cart_button button">Thêm vào giỏ</button>
-                                    </form>
+                                        <button type="submit" class="button">Thêm vào giỏ</button>
+                                    }
                                     <div class="yith-wcwl-add-to-wishlist">
                                         <div class="yith-wcwl-add-button">
-                                            <a href="#" class="add_to_wishlist"></a>
+                                            <a href="javascript:;" class="add_to_wishlist"></a>
                                         </div>
                                     </div>
                                     <div class="clear"></div>
@@ -80,9 +82,6 @@
                                     <li class="active">
                                         <a data-toggle="tab" href="#tab-1">Chi tiết</a>
                                     </li>
-                                    @*<li>
-                                            <a data-toggle="tab" href="#tab-2">Reviews</a>
-                                        </li>*@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade in active" id="tab-1">
@@ -93,161 +92,54 @@
                             <div class="related products">
                                 <h2>Sản phẩm liên quan</h2>
                                 <div class="products row product-grid">
-                                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                        <div class="noo-product-inner">
-                                            <div class="noo-product-thumbnail">
-                                                <a href="@Url.Action("Show", "Product")">
-                                                    <img width="600" height="760" src="~/Assets/images/product/product_4.jpg" alt="" />
-                                                </a>
-                                                <div class="noo-rating">
-                                                    <div class="star-rating">
-                                                        <span style="width:20%"></span>
+                                    @foreach (var productTop in ViewBag.productTop)
+                                    {
+                                        <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
+                                            <div class="noo-product-inner">
+                                                <div class="noo-product-thumbnail">
+                                                    <a href="@Url.Action("Show", "Product")">
+                                                        <img width="600" height="760" src="~/Content/images/@productTop.image" alt="" />
+                                                    </a>
+                                                    <div class="noo-rating">
+                                                        <div class="star-rating">
+                                                            <span style="width:20%"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="noo-product-title">
-                                                <h3><a href="@Url.Action("Show", "Product")">Carrots</a></h3>
-                                                <span class="price"><span class="amount">&#36;1.05</span></span>
-                                                <div class="noo-product-action">
-                                                    <div class="noo-action">
-                                                        <a href="#" class="button product_type_simple add_to_cart_button">
-                                                            <span>Thêm vào giỏ</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                        <div class="noo-product-inner">
-                                            <div class="noo-product-thumbnail">
-                                                <a href="@Url.Action("Show", "Product")">
-                                                    <img width="600" height="760" src="~/Assets/images/product/product_5.jpg" alt="" />
-                                                </a>
-                                                <div class="noo-rating">
-                                                    <div class="star-rating">
-                                                        <span style="width:0%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="noo-product-title">
-                                                <h3><a href="@Url.Action("Show", "Product")">Celery</a></h3>
-                                                <span class="price"><span class="amount">&#36;2.09</span></span>
-                                                <div class="noo-product-action">
-                                                    <div class="noo-action">
-                                                        <a href="#" class="button product_type_simple add_to_cart_button">
-                                                            <span>Thêm vào giỏ</span>
-                                                        </a>
+                                                <div class="noo-product-title">
+                                                    <h3><a href="@Url.Action("Show", "Product")">@productTop.name</a></h3>
+                                                    <span class="price"><span class="amount">@String.Format("{0:0,0}", @productTop.price) vnđ</span></span>
+                                                    <div class="noo-product-action">
+                                                        <div class="noo-action">
+                                                            <a href="#" class="button product_type_simple add_to_cart_button">
+                                                                <span>Thêm vào giỏ</span>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="masonry-item noo-product-column col-md-4 col-sm-6 product">
-                                        <div class="noo-product-inner">
-                                            <div class="noo-product-thumbnail">
-                                                <a href="@Url.Action("Show", "Product")">
-                                                    <img width="600" height="760" src="~/Assets/images/product/product_16.jpg" alt="" />
-                                                </a>
-                                                <div class="noo-rating">
-                                                    <div class="star-rating">
-                                                        <span style="width:0%"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="noo-product-title">
-                                                <h3><a href="@Url.Action("Show", "Product")">Onions</a></h3>
-                                                <span class="price"><span class="amount">&#36;1.70</span></span>
-                                                <div class="noo-product-action">
-                                                    <div class="noo-action">
-                                                        <a href="#" class="button product_type_simple add_to_cart_button">
-                                                            <span>Thêm vào giỏ</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="noo-sidebar col-md-3">
                         <div class="noo-sidebar-wrap">
-                            <div class="widget commerce widget_product_search">
-                                <h3 class="widget-title">Tìm kiếm</h3>
-                                <form class="commerce-product-search">
-                                    <input type="search" id="commerce-product-search-field" class="search-field" placeholder="Tìm kiếm&hellip;" value="" name="s" />
-                                    <input type="submit" value="Search" />
-                                </form>
-                            </div>
-                            <div class="widget commerce widget_product_categories">
-                                <h3 class="widget-title">Vùng miền</h3>
-                                <ul class="product-categories">
-                                    <li><a href="#">Miền Bắc</a></li>
-                                    <li><a href="#">Miền Trung</a></li>
-                                    <li><a href="#">Miền Nam</a></li>
-                                </ul>
-                            </div>
                             <div class="widget commerce widget_products">
                                 <h3 class="widget-title">Được mua nhiều nhất</h3>
                                 <ul class="product_list_widget">
-                                    <li>
-                                        <a href="@Url.Action("Show", "Product")">
-                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_1.png" alt="" />
-                                            <span class="product-title">French Bread</span>
-                                        </a>
-                                        <span class="amount">&#36;10.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Show", "Product")">
-                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_2.png" alt="" />
-                                            <span class="product-title">Cookie</span>
-                                        </a>
-                                        <span class="amount">&#36;15.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Show", "Product")">
-                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_3.png" alt="" />
-                                            <span class="product-title">Brown Bread</span>
-                                        </a>
-                                        <span class="amount">&#36;12.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Show", "Product")">
-                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_6.png" alt="" />
-                                            <span class="product-title">Apples</span>
-                                        </a>
-                                        <span class="amount">&#36;3.95</span>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Show", "Product")">
-                                            <img width="100" height="100" src="~/Assets/images/product/thumb/product_7.png" alt="" />
-                                            <span class="product-title">Pomegranates</span>
-                                        </a>
-                                        <span class="amount">&#36;3.90</span>
-                                    </li>
+                                    @foreach (var productTop in ViewBag.productTop)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Show", "Product")">
+                                                <img width="100" height="100" src="~/Content/images/@productTop.image" alt="" />
+                                                <span class="product-title">@productTop.name</span>
+                                            </a>
+                                            <span class="amount">@String.Format("{0:0,0}", @productTop.price) vnđ</span>
+                                        </li>
+                                    }
                                 </ul>
-                            </div>
-                            <div class="widget commerce widget_product_tag_cloud">
-                                <h3 class="widget-title">Sản phẩm khác</h3>
-                                <div class="tagcloud">
-                                    <a href="#">apple</a>
-                                    <a href="#">bread</a>
-                                    <a href="#">broccoli</a>
-                                    <a href="#">brown bread</a>
-                                    <a href="#">carrot</a>
-                                    <a href="#">celery</a>
-                                    <a href="#">cookie</a>
-                                    <a href="#">cucumbers</a>
-                                    <a href="#">detox juicing</a>
-                                    <a href="#">french bread</a>
-                                    <a href="#">fruits</a>
-                                    <a href="#">green apple</a>
-                                    <a href="#">lemon</a>
-                                    <a href="#">lime</a>
-                                    <a href="#">mango</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -256,5 +148,3 @@
         </div>
     </div>
 </div>
-@*</body>
-    </html>*@

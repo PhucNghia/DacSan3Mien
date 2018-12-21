@@ -1,0 +1,112 @@
+﻿@using DacSan3Mien.Models.ViewModels
+@model List<BookingCart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<html lang="en-US">
+
+<body>
+    <div class="noo-spinner">
+        <div class="spinner">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+        </div>
+    </div>
+    <div class="site">
+        <section class="noo-page-heading eff">
+            <div class="container">
+                <div class="noo-heading-content">
+                    <h1 class="page-title eff">Giỏ hàng</h1>
+                    <div class="noo-page-breadcrumb eff">
+                        <a href="index.html" class="home">Đặc sản 3 miền</a>/<span>Giỏ hàng</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="main">
+            <div class="commerce commerce-page commerce-cart noo-shop-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="noo-main col-md-12">
+                            <table class="shop_table cart">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th class="col-md-2 text-center">Ảnh</th>
+                                        <th class="col-md-2 text-center">Tên</th>
+                                        <th class="col-md-2 text-center">Giá</th>
+                                        <th class="col-md-2 text-center">Số lượng</th>
+                                        <th class="col-md-3 text-center">Thành tiền</th>
+                                        <th class="col-md-1 text-center">&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cart">
+                                    @foreach (var product in Model)
+                                    {
+                                        <tr class="cart_item">
+                                            <td class="col-md-2 product-thumbnail">
+                                                <a href="@Url.Action("Show", "Product", new { id = product.productId })">
+                                                    <img width="100" height="100" src="~/Content/images/@product.image" alt="" />
+                                                </a>
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <a href="@Url.Action("Show", "Product")">@product.productName </a>
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <span class="amount">@String.Format("{0:0,0}", product.price) vnđ</span>
+                                            </td>
+                                            <td class="col-md-2 text-center">
+                                                <div class="quantity">
+                                                    <input type="number" step="1" min="0" data-productId="@product.productId" value="@product.quantity" class="input-text qty text product-quantity" size="4" />
+                                                </div>
+                                            </td>
+                                            <td class="col-md-3 text-center">
+                                                <span class="amount">@String.Format("{0:0,0}", product.amount()) vnđ</span>
+                                            </td>
+                                            <td class="col-md-1 text-center">
+                                                <a href="javascript:;" data-productId="@product.productId" class="remove remove-product">&times;</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="cart-collaterals">
+                                <div class="noocart-coupon">
+                                    <label for="coupon_code">Phiếu mua hàng</label>
+                                    <p>Nhập mã phiếu nếu bạn có</p>
+                                    <input type="text" name="noo_coupon_code" class="input-text" id="noo_coupon_code" value="" placeholder="Mã phiếu" />
+                                    <button class="noo-apply-coupon button">Xác nhận</button>
+                                </div>
+                                <div class="col-md-3 cart_totals">
+                                    <h2>Tổng giỏ hàng</h2>
+                                    <table>
+                                        <tr class="cart-subtotal">
+                                            <th>Tổng số lượng</th>
+                                            <td><span class="amount">@ViewBag.quantityTotal</span></td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>Tổng tiền</th>
+                                            <td><strong><span class="amount">@String.Format("{0:0,0}", @ViewBag.amountTotal) vnđ</span></strong> </td>
+                                        </tr>
+                                    </table>
+                                    <div class="wc-proceed-to-checkout text-center">
+                                        @using (Html.BeginForm("Order", "BookingCart"))
+                                        {
+                                            <button class="checkout-button button alt wc-forward" type="submit">Đặt hàng</button>
+                                            @*<a href="#" class="checkout-button button alt wc-forward">
+                                                    Đặt hàng
+                                                </a>*@
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

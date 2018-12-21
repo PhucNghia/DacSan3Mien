@@ -34,8 +34,8 @@
                             else
                             {
                                 <li class="menu-item noo-menu-item-cart minicart">
-                                    <a class="cart-button" href="@Url.Action("Index", "Card")">
-                                        <i class="fa fa-shopping-cart"></i>Giỏ hàng
+                                    <a class="cart-button" href="@Url.Action("Index", "BookingCart")">
+                                        @Html.Action("totalBookingCart", "BookingCart")
                                     </a>
                                 </li>
                             }

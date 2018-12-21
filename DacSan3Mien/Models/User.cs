@@ -50,5 +50,7 @@ namespace DacSan3Mien.Models
         public string confirmPassword { get; set; }
 
         public string role { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

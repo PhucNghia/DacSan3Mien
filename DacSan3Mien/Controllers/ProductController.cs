@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using DacSan3Mien.Models;
 using DacSan3Mien.Models.ViewModels;
+using PagedList;
+using PagedList.Mvc;
 
 namespace DacSan3Mien.Controllers
 {
@@ -13,11 +15,17 @@ namespace DacSan3Mien.Controllers
     {
         DataContext db = new DataContext();
 
-        // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(string searchProduct, int page = 1, int pageSize = 5)
         {
-            var products = db.Products.Select(row => row).ToList();
-            return View(products);
+            IQueryable<Product> products = db.Products;
+            if (!String.IsNullOrEmpty(searchProduct))
+            {
+                products = products.Where(p => p.name.Contains(searchProduct));
+            }
+
+            ViewBag.productTop = db.Products.Take(7).ToList();
+
+            return View(products.OrderBy(n => n.name).ToPagedList(page, pageSize));
         }
 
         public ActionResult Show(int? id)
@@ -45,6 +53,7 @@ namespace DacSan3Mien.Controllers
                 regionName = product.Region.name
             };
 
+            ViewBag.productTop = db.Products.Take(6).ToList();
             return View(productRegion);
         }
     }
