@@ -28,6 +28,11 @@ namespace DacSan3Mien.Models
         [Required(ErrorMessage = "{0} không được để trống!")]
         public string status { get; set; }
 
+        [Display(Name = "Số lượng")]
+        [Required(ErrorMessage = "{0} không được để trống!")]
+        [Range(0, 100000000, ErrorMessage = "{0} phải nằm trong khoảng từ {1} tới {2}")]
+        public int quantity { get; set; }
+
         [Display(Name = "Mô tả")]
         [Required(ErrorMessage = "{0} không được để trống!")]
         public string description { get; set; }
@@ -43,5 +48,6 @@ namespace DacSan3Mien.Models
         public List<System.Web.Mvc.SelectListItem> listRegion { get; set; }
 
         public virtual Region Region { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿
+﻿@using DacSan3Mien.Models
+@model List<AccessQuantity>
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -16,30 +17,14 @@
             <li><span>200</span></li>
             <li><span>0</span></li>
         </ul>
-        <div class="bar">
-            <div class="title">15/12/2018</div>
-            <div class="value tooltips" data-original-title="800" data-toggle="tooltip" data-placement="top">85%</div>
-        </div>
-        <div class="bar ">
-            <div class="title">16/12/2018</div>
-            <div class="value tooltips" data-original-title="500" data-toggle="tooltip" data-placement="top">50%</div>
-        </div>
-        <div class="bar ">
-            <div class="title">17/12/2018</div>
-            <div class="value tooltips" data-original-title="400" data-toggle="tooltip" data-placement="top">40%</div>
-        </div>
-        <div class="bar ">
-            <div class="title">18/12/2018</div>
-            <div class="value tooltips" data-original-title="700" data-toggle="tooltip" data-placement="top">70%</div>
-        </div>
-        <div class="bar ">
-            <div class="title">19/12/2018</div>
-            <div class="value tooltips" data-original-title="400" data-toggle="tooltip" data-placement="top">40%</div>
-        </div>
-        <div class="bar ">
-            <div class="title">20/12/2018</div>
-            <div class="value tooltips" data-original-title="900" data-toggle="tooltip" data-placement="top">90%</div>
-        </div>
+        @foreach (var quantity in Model)
+        {
+            string percent = (quantity.quantity * 100 / 1000) + "%";
+            <div class="bar ">
+                <div class="title">@quantity.date.ToString("dd//MM/yyyy")</div>
+                <div class="value tooltips" data-original-title="@quantity.quantity" data-toggle="tooltip" data-placement="top">@percent</div>
+            </div>
+        }
     </div>
 </div>
 <div class="col-lg-3 ds">

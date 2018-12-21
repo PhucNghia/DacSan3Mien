@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using DacSan3Mien.Models;
 using DacSan3Mien.Models.ViewModels;
+using PagedList;
 
 namespace DacSan3Mien.Areas.Admin.Controllers
 {
@@ -14,8 +15,9 @@ namespace DacSan3Mien.Areas.Admin.Controllers
     {
         private DataContext db = new DataContext();
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
+            if (!checkAdmin()) return Redirect("/");;
             var productList = db.Products.Select(p => new ProductRegions
             {
                 productId = p.id,
@@ -26,13 +28,14 @@ namespace DacSan3Mien.Areas.Admin.Controllers
                 description = p.description,
                 regionId = p.regionId,
                 regionName = p.Region.name
-            }).ToList();
+            }).OrderBy(n => n.productName).ToPagedList(page, pageSize);
 
             return View(productList);
         }
-
+        
         public ActionResult Details(int? id)
         {
+            if (!checkAdmin()) return Redirect("/");;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -49,6 +52,7 @@ namespace DacSan3Mien.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (!checkAdmin()) return Redirect("/");;
             Product product = new Product();
             product.listRegion = getListRegion(1);
 
@@ -73,6 +77,7 @@ namespace DacSan3Mien.Areas.Admin.Controllers
 
         public ActionResult Edit(int? id)
         {
+            if (!checkAdmin()) return Redirect("/");;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -103,6 +108,7 @@ namespace DacSan3Mien.Areas.Admin.Controllers
 
         public ActionResult Delete(int? id)
         {
+            if (!checkAdmin()) return Redirect("/");;
             Product product = db.Products.Find(id);
             db.Products.Remove(product);
             db.SaveChanges();
@@ -125,6 +131,20 @@ namespace DacSan3Mien.Areas.Admin.Controllers
             list.Add(south);
             
             return list;
+        }
+
+        public bool checkAdmin()
+        {
+            if (Session["userID"] == null)
+                return false;
+            else
+            {
+                User user = db.Users.Find(int.Parse(Session["userId"].ToString()));
+                if (user.role == "user")
+                    return false;
+                else
+                    return true;
+            }
         }
     }
 }
